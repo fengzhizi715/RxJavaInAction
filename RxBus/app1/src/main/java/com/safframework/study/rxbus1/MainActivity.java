@@ -1,4 +1,4 @@
-package com.safframework.study.rxjava;
+package com.safframework.study.rxbus1;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

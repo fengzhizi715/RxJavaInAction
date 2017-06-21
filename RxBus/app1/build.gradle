@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.safframework.study.rxjava"
+        applicationId "com.safframework.study.rxbus1"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
