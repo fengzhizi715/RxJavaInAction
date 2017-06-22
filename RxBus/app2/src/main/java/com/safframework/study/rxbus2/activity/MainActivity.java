@@ -1,4 +1,4 @@
-package com.safframework.study.rxbus1.activity;
+package com.safframework.study.rxbus2.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
-import com.safframework.study.rxbus1.R;
-import com.safframework.study.rxbus1.app.BaseActivity;
-import com.safframework.study.rxbus1.domain.TestBackPressEvent;
+import com.safframework.study.rxbus2.R;
+import com.safframework.study.rxbus2.app.BaseActivity;
+import com.safframework.study.rxbus2.domain.TestBackPressEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +63,7 @@ public class MainActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        disposable = rxBus.toObservable(TestBackPressEvent.class)
+        disposable = rxBus.toFlowable(TestBackPressEvent.class)
                 .subscribe(new Consumer<TestBackPressEvent>() {
             @Override
             public void accept(@NonNull TestBackPressEvent testBackPressEvent) throws Exception {
