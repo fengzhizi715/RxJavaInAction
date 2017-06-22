@@ -1,10 +1,10 @@
 # RxBus
-多种方式实现RxBus
+四种方式实现Event Bus
 
-# 简单的Event Bus
+# 1.最简单的Event Bus
 
-# 支持背压的Event Bus
+# 2.支持背压的Event Bus
 
-# 支持异常处理和背压的Event Bus
+# 3.支持异常处理和背压的Event Bus
 
-# 支持Sticky 事件的Event Bus
+# 4.还支持Sticky事件的Event Bus
