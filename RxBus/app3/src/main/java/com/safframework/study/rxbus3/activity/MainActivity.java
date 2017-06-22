@@ -7,15 +7,17 @@ import android.widget.Toast;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
+import com.safframework.log.L;
 import com.safframework.study.rxbus3.R;
 import com.safframework.study.rxbus3.app.BaseActivity;
-import com.safframework.study.rxbus3.domain.TestBackPressEvent;
+import com.safframework.study.rxbus3.domain.TestCrossActivityEvent;
+import com.safframework.study.rxbus3.domain.TestExceptionEvent;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity {
@@ -26,7 +28,10 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text2)
     TextView text2;
 
-    private Disposable disposable;
+    @InjectView(R.id.text3)
+    TextView text3;
+
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +61,18 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestBackPressureActivity.class);
+                        Intent i = new Intent(MainActivity.this,TestCrossActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        RxView.clicks(text3)
+                .throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestExceptionActivity.class);
                         startActivity(i);
                     }
                 });
@@ -64,17 +80,31 @@ public class MainActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        disposable = rxBus.register(TestBackPressEvent.class, AndroidSchedulers.mainThread(), new Consumer<TestBackPressEvent>() {
+        compositeDisposable.add(rxBus.register(TestCrossActivityEvent.class, AndroidSchedulers.mainThread(), new Consumer<TestCrossActivityEvent>() {
             @Override
-            public void accept(@NonNull TestBackPressEvent testBackPressEvent) throws Exception {
-                Toast.makeText(MainActivity.this, "来自MainActivity的Toast", Toast.LENGTH_SHORT).show();
+            public void accept(@NonNull TestCrossActivityEvent event) throws Exception {
+                Toast.makeText(MainActivity.this,"来自MainActivity的Toast",Toast.LENGTH_SHORT).show();
             }
-        });
+        }));
+
+        compositeDisposable.add(rxBus.register(TestExceptionEvent.class, AndroidSchedulers.mainThread(), new Consumer<TestExceptionEvent>() {
+            @Override
+            public void accept(@NonNull TestExceptionEvent event) throws Exception {
+                String str = null;
+                System.out.println(str.substring(0));
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(@NonNull Throwable throwable) throws Exception {
+
+                L.i(throwable.getMessage());
+            }
+        }));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        rxBus.unregister(disposable);
+        compositeDisposable.clear();
     }
 }

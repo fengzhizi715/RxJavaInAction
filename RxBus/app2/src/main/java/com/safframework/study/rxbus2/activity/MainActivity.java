@@ -2,7 +2,6 @@ package com.safframework.study.rxbus2.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
@@ -68,7 +67,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void accept(@NonNull TestBackPressEvent testBackPressEvent) throws Exception {
 
-                Log.i("MainActivity","testBackPressEvent");
             }
         });
     }
