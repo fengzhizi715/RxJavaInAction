@@ -3,7 +3,7 @@ package com.safframework.study.rxbus3.activity;
 import android.os.Bundle;
 
 import com.safframework.study.rxbus3.app.BaseActivity;
-import com.safframework.study.rxbus3.domain.TestCrossActivityEvent;
+import com.safframework.study.rxbus3.domain.CrossActivityEvent;
 
 
 /**
@@ -17,6 +17,6 @@ public class TestCrossActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        rxBus.post(new TestCrossActivityEvent());
+        rxBus.post(new CrossActivityEvent());
     }
 }

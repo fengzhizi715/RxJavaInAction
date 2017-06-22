@@ -3,7 +3,7 @@ package com.safframework.study.rxbus4.activity;
 import android.os.Bundle;
 
 import com.safframework.study.rxbus4.app.BaseActivity;
-import com.safframework.study.rxbus4.domain.TestExceptionEvent;
+import com.safframework.study.rxbus4.domain.ExceptionEvent;
 
 
 /**
@@ -16,6 +16,6 @@ public class TestExceptionActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        rxBus.post(new TestExceptionEvent());
+        rxBus.post(new ExceptionEvent());
     }
 }

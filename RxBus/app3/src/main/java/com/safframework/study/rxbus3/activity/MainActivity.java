@@ -10,8 +10,8 @@ import com.safframework.injectview.annotations.InjectView;
 import com.safframework.log.L;
 import com.safframework.study.rxbus3.R;
 import com.safframework.study.rxbus3.app.BaseActivity;
-import com.safframework.study.rxbus3.domain.TestCrossActivityEvent;
-import com.safframework.study.rxbus3.domain.TestExceptionEvent;
+import com.safframework.study.rxbus3.domain.CrossActivityEvent;
+import com.safframework.study.rxbus3.domain.ExceptionEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -80,16 +80,16 @@ public class MainActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        compositeDisposable.add(rxBus.register(TestCrossActivityEvent.class, AndroidSchedulers.mainThread(), new Consumer<TestCrossActivityEvent>() {
+        compositeDisposable.add(rxBus.register(CrossActivityEvent.class, AndroidSchedulers.mainThread(), new Consumer<CrossActivityEvent>() {
             @Override
-            public void accept(@NonNull TestCrossActivityEvent event) throws Exception {
+            public void accept(@NonNull CrossActivityEvent event) throws Exception {
                 Toast.makeText(MainActivity.this,"来自MainActivity的Toast",Toast.LENGTH_SHORT).show();
             }
         }));
 
-        compositeDisposable.add(rxBus.register(TestExceptionEvent.class, AndroidSchedulers.mainThread(), new Consumer<TestExceptionEvent>() {
+        compositeDisposable.add(rxBus.register(ExceptionEvent.class, AndroidSchedulers.mainThread(), new Consumer<ExceptionEvent>() {
             @Override
-            public void accept(@NonNull TestExceptionEvent event) throws Exception {
+            public void accept(@NonNull ExceptionEvent event) throws Exception {
                 String str = null;
                 System.out.println(str.substring(0));
             }

@@ -9,6 +9,7 @@ import com.safframework.study.rxbus4.domain.StickyEvent;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -16,6 +17,8 @@ import io.reactivex.functions.Consumer;
  */
 
 public class TestStickyActivity extends BaseActivity {
+
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,22 +36,29 @@ public class TestStickyActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        rxBus.registerSticky(StickyEvent.class, AndroidSchedulers.mainThread(), new Consumer<StickyEvent>() {
+        compositeDisposable.add(rxBus.registerSticky(StickyEvent.class, AndroidSchedulers.mainThread(), new Consumer<StickyEvent>() {
 
             @Override
             public void accept(@NonNull StickyEvent event) throws Exception {
 
                 Toast.makeText(TestStickyActivity.this,"this is StickyEvent",Toast.LENGTH_SHORT).show();
             }
-        });
+        }));
 
-        rxBus.register(NormalEvent.class, AndroidSchedulers.mainThread(), new Consumer<NormalEvent>() {
+        compositeDisposable.add(rxBus.register(NormalEvent.class, AndroidSchedulers.mainThread(), new Consumer<NormalEvent>() {
 
             @Override
             public void accept(@NonNull NormalEvent event) throws Exception {
 
                 Toast.makeText(TestStickyActivity.this,"this is NormalEvent",Toast.LENGTH_SHORT).show();
             }
-        });
+        }));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        rxBus.removeStickyEvent(StickyEvent.class);
+        compositeDisposable.clear();
     }
 }
