@@ -2,6 +2,7 @@ package com.safframework.study.rxbus3.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+
 import com.safframework.study.rxbus3.R;
 import com.safframework.study.rxbus3.app.BaseActivity;
 import com.safframework.study.rxbus3.domain.Fragment1Event;
@@ -46,23 +47,21 @@ public class TestEventBusActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        compositeDisposable.add(rxBus.toFlowable(Fragment1Event.class)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Object>() {
+        compositeDisposable.add(rxBus.register(Fragment1Event.class, AndroidSchedulers.mainThread(),
+                new Consumer<Fragment1Event>() {
+
+            @Override
+            public void accept(@NonNull Fragment1Event event) throws Exception {
+
+                fragment2.getText2().setText("fragment2 已经接收到事件");
+            }
+        }));
+
+        compositeDisposable.add(rxBus.register(Fragment2Event.class, AndroidSchedulers.mainThread(),
+                new Consumer<Fragment2Event>() {
 
                     @Override
-                    public void accept(@NonNull Object o) throws Exception {
-
-                        fragment2.getText2().setText("fragment2 已经接收到事件");
-                    }
-                }));
-
-        compositeDisposable.add(rxBus.toFlowable(Fragment2Event.class)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Object>() {
-
-                    @Override
-                    public void accept(@NonNull Object o) throws Exception {
+                    public void accept(@NonNull Fragment2Event event) throws Exception {
 
                         fragment1.getText1().setText("fragment1 已经接收到事件");
                     }

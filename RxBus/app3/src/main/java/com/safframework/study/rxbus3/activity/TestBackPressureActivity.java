@@ -16,9 +16,6 @@ public class TestBackPressureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        for (int i=0;;i++) {
-
-            rxBus.post(new TestBackPressEvent());
-        }
+        rxBus.post(new TestBackPressEvent());
     }
 }
