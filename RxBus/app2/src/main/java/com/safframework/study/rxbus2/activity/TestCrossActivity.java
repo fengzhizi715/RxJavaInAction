@@ -3,13 +3,13 @@ package com.safframework.study.rxbus2.activity;
 import android.os.Bundle;
 
 import com.safframework.study.rxbus2.app.BaseActivity;
-import com.safframework.study.rxbus2.domain.TestBackPressEvent;
+import com.safframework.study.rxbus2.domain.TestCrossActivityEvent;
 
 /**
  * Created by Tony Shen on 2017/6/22.
  */
 
-public class TestBackPressureActivity extends BaseActivity {
+public class TestCrossActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class TestBackPressureActivity extends BaseActivity {
 
 //        for (int i=0;;i++) {
 
-            rxBus.post(new TestBackPressEvent());
+            rxBus.post(new TestCrossActivityEvent());
 //        }
     }
 }

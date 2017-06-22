@@ -3,12 +3,13 @@ package com.safframework.study.rxbus2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbus2.R;
 import com.safframework.study.rxbus2.app.BaseActivity;
-import com.safframework.study.rxbus2.domain.TestBackPressEvent;
+import com.safframework.study.rxbus2.domain.TestCrossActivityEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestBackPressureActivity.class);
+                        Intent i = new Intent(MainActivity.this,TestCrossActivity.class);
                         startActivity(i);
                     }
                 });
@@ -62,11 +63,11 @@ public class MainActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        disposable = rxBus.toFlowable(TestBackPressEvent.class)
-                .subscribe(new Consumer<TestBackPressEvent>() {
+        disposable = rxBus.toFlowable(TestCrossActivityEvent.class)
+                .subscribe(new Consumer<TestCrossActivityEvent>() {
             @Override
-            public void accept(@NonNull TestBackPressEvent testBackPressEvent) throws Exception {
-
+            public void accept(@NonNull TestCrossActivityEvent event) throws Exception {
+                Toast.makeText(MainActivity.this,"来自MainActivity的Toast",Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -25,7 +25,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".activity.TestBackPressureActivity"
+            android:name=".activity.TestCrossActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
     </application>
