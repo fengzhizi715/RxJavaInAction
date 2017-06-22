@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
-        registerEventBus();
+        registerEvents();
     }
 
     private void initViews() {
@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void accept(@NonNull Object o) throws Exception {
 
+                Intent i = new Intent(MainActivity.this,TestEventBusActivity.class);
+                startActivity(i);
             }
         });
 
@@ -56,9 +58,10 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private void registerEventBus() {
+    private void registerEvents() {
 
-        rxBus.toObservable(TestBackPressEvent.class).subscribe(new Consumer<TestBackPressEvent>() {
+        rxBus.toObservable(TestBackPressEvent.class)
+                .subscribe(new Consumer<TestBackPressEvent>() {
             @Override
             public void accept(@NonNull TestBackPressEvent testBackPressEvent) throws Exception {
 
