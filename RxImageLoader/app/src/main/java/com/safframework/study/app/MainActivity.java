@@ -1,4 +1,4 @@
-package com.safframework.study.imageloader;
+package com.safframework.study.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
