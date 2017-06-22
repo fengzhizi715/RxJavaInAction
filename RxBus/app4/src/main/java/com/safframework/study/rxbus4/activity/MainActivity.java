@@ -31,6 +31,9 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text3)
     TextView text3;
 
+    @InjectView(R.id.text4)
+    TextView text4;
+
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
@@ -73,6 +76,17 @@ public class MainActivity extends BaseActivity {
                     public void accept(@NonNull Object o) throws Exception {
 
                         Intent i = new Intent(MainActivity.this,TestExceptionActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        RxView.clicks(text4)
+                .throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestStickyActivity.class);
                         startActivity(i);
                     }
                 });

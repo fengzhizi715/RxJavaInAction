@@ -33,6 +33,11 @@
             android:name=".activity.TestExceptionActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.TestStickyActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
