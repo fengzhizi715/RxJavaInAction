@@ -9,7 +9,7 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbus1.R;
 import com.safframework.study.rxbus1.app.BaseActivity;
-import com.safframework.study.rxbus1.domain.TestCrossActivityEvent;
+import com.safframework.study.rxbus1.domain.CrossActivityEvent;
 
 import java.util.concurrent.TimeUnit;
 
@@ -63,10 +63,10 @@ public class MainActivity extends BaseActivity {
 
     private void registerEvents() {
 
-        disposable = rxBus.toObservable(TestCrossActivityEvent.class)
-                .subscribe(new Consumer<TestCrossActivityEvent>() {
+        disposable = rxBus.toObservable(CrossActivityEvent.class)
+                .subscribe(new Consumer<CrossActivityEvent>() {
             @Override
-            public void accept(@NonNull TestCrossActivityEvent event) throws Exception {
+            public void accept(@NonNull CrossActivityEvent event) throws Exception {
                 Toast.makeText(MainActivity.this,"来自MainActivity的Toast",Toast.LENGTH_SHORT).show();
             }
         });
