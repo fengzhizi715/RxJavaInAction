@@ -15,9 +15,6 @@ public class TestCrossActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        for (int i=0;;i++) {
-
-            rxBus.post(new CrossActivityEvent());
-//        }
+        rxBus.post(new CrossActivityEvent());
     }
 }
