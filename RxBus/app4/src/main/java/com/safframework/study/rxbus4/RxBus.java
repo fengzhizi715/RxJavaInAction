@@ -116,6 +116,14 @@ public class RxBus {
         return toObservableSticky(eventType).observeOn(scheduler).subscribe(onNext);
     }
 
+    public <T> Disposable registerSticky(Class<T> eventType, Consumer<T> onNext) {
+        return toObservableSticky(eventType).observeOn(AndroidSchedulers.mainThread()).subscribe(onNext);
+    }
+
+    public <T> Disposable registerSticky(Class<T> eventType, Consumer<T> onNext, Consumer onError) {
+        return toObservableSticky(eventType).observeOn(AndroidSchedulers.mainThread()).subscribe(onNext,onError);
+    }
+
     /**
      * 移除指定eventType的Sticky事件
      */
