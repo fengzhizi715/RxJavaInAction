@@ -23,7 +23,6 @@ import io.reactivex.functions.Consumer;
 public class RxBus {
 
     private Relay<Object> bus = null;
-    private static RxBus instance;
     private final Map<Class<?>, Object> mStickyEventMap;
 
     //禁用构造方法

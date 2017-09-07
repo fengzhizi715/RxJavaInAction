@@ -17,7 +17,6 @@ import io.reactivex.functions.Consumer;
 public class RxBus {
 
     private Relay<Object> bus = null;
-    private static RxBus instance;
 
     //禁用构造方法
     private RxBus() {
