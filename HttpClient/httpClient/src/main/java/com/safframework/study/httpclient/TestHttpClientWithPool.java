@@ -25,7 +25,6 @@ import java.net.UnknownHostException;
  */
 public class TestHttpClientWithPool {
 
-
     /** 全局连接池对象 */
     private static final PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager();
 
@@ -33,12 +32,10 @@ public class TestHttpClientWithPool {
      * 静态代码块配置连接池信息
      */
     static {
-
         // 设置最大连接数
         connManager.setMaxTotal(200);
         // 设置每个连接的路由数
         connManager.setDefaultMaxPerRoute(20);
-
     }
 
     /**
@@ -47,7 +44,7 @@ public class TestHttpClientWithPool {
      * @param timeOut 超时时间
      * @return Http客户端连接对象
      */
-    public static CloseableHttpClient getHttpClient(Integer timeOut) {
+    public static CloseableHttpClient getHttpClient(int timeOut) {
         // 创建Http请求配置参数
         RequestConfig requestConfig = RequestConfig.custom()
                 // 获取连接超时时间
@@ -115,7 +112,7 @@ public class TestHttpClientWithPool {
      * @param timeOut 超时时间
      * @return
      */
-    public static String httpGet(String url, Integer timeOut) {
+    public static String httpGet(String url, int timeOut) {
         String msg = "-1";
 
         // 获取客户端连接对象
@@ -159,6 +156,5 @@ public class TestHttpClientWithPool {
     public static void main(String[] args) {
 
         System.out.println(httpGet("http://www.163.com", 6000));
-
     }
 }
