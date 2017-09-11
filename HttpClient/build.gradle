@@ -1,4 +1,4 @@
-group 'com.safframework.study.httpclient'
+group 'com.safframework.study'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
