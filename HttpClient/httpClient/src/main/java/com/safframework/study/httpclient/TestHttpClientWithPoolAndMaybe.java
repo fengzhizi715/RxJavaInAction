@@ -111,7 +111,7 @@ public class TestHttpClientWithPoolAndMaybe {
                     System.err.println("IO错误");
                     e.printStackTrace();
                 } finally {
-                    if (null != response) {
+                    if (response != null) {
                         try {
                             EntityUtils.consume(response.getEntity());
                             response.close();

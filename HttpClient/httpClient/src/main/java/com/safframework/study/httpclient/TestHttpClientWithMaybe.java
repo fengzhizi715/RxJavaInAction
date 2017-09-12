@@ -43,8 +43,8 @@ public class TestHttpClientWithMaybe {
             public void accept(CloseableHttpResponse response) throws Exception {
 
                 // 服务器返回码
-                int status_code = response.getStatusLine().getStatusCode();
-                System.out.println("status_code = " + status_code);
+                int statusCode = response.getStatusLine().getStatusCode();
+                System.out.println("statusCode = " + statusCode);
 
                 HttpEntity entity = response.getEntity();
 
@@ -55,10 +55,10 @@ public class TestHttpClientWithMaybe {
                     respStr = EntityUtils.toString(entity, "UTF-8");
                 }
 
+                System.out.println(respStr);
+
                 // 释放资源
                 EntityUtils.consume(entity);
-
-                System.out.println("respStr = " + respStr);
             }
         });
     }
