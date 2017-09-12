@@ -5,6 +5,8 @@
 
 HttpClient是Java工程，使用IntelliJ Idea打开
 
+LearnJava8是Java工程，使用IntelliJ Idea打开
+
 Parallel是Java工程，使用IntelliJ Idea打开
 
 RxBus是Android工程，使用Android Studio打开
