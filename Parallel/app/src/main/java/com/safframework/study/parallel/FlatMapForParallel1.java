@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by tony on 2017/9/12.
  */
-public class FlapMapForParallel {
+public class FlatMapForParallel1 {
 
     public static void main(String[] args) {
 
