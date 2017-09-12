@@ -1,0 +1,10 @@
+# Java class files
+*.class
+
+.idea
+.DS_Store
+
+.gradle
+build/
+gradlew
+gradlew.bat
