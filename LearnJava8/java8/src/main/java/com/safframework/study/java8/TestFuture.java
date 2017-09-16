@@ -16,6 +16,7 @@ public class TestFuture {
 
         Future<String> future = executor.submit(() -> { //Lambda 是一个 callable， 提交后便立即执行，这里返回的是 FutureTask 实例
             System.out.println("running task");
+            Thread.sleep(10000);
             return "return task";
         });
 
