@@ -8,7 +8,6 @@ import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbinding.R;
 import com.safframework.study.rxbinding.app.BaseActivity;
-import com.safframework.study.rxbinding.utils.RxUtils;
 
 import java.util.concurrent.TimeUnit;
 
