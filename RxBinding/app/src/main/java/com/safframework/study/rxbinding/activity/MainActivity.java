@@ -10,7 +10,9 @@ import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbinding.R;
 import com.safframework.study.rxbinding.app.BaseActivity;
 import com.safframework.study.rxbinding.utils.RxUtils;
+import com.safframework.utils.RxJavaUtils;
 
+import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
@@ -34,6 +36,8 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text6)
     TextView text6;
 
+    @InjectView(R.id.text7)
+    TextView text7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,5 +106,22 @@ public class MainActivity extends BaseActivity {
                         startActivity(i);
                     }
                 });
+
+        Observable clickObservable = RxView.clicks(text7).compose(RxUtils.useRxViewTransformer(MainActivity.this)).share();
+        clickObservable.subscribe(new Consumer() {
+            @Override
+            public void accept(Object o) throws Exception {
+
+                Toast.makeText(MainActivity.this,"对text7的第一次监听",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        clickObservable.subscribe(new Consumer() {
+            @Override
+            public void accept(Object o) throws Exception {
+
+                Toast.makeText(MainActivity.this,"对text7的第二次监听",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
