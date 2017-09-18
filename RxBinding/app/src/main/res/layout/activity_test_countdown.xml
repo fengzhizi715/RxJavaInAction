@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <EditText
+            android:id="@+id/verification_code"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawableLeft="@drawable/icon_verification"
+            android:drawablePadding="5dp"
+            android:hint="@string/please_enter_the_verification_code"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/get_verification_code"
+            android:layout_width="80dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical|right"
+            android:background="@drawable/shape_verification_code_bg"
+            android:gravity="center"
+            android:text="@string/get_verification_code"
+            android:textSize="12sp"
+            android:textColor="@color/white"/>
+    </FrameLayout>
+</LinearLayout>

@@ -3,4 +3,6 @@
 
     <string name="please_enter_phone_number">手机号</string>
     <string name="please_enter_the_password">密码</string>
+    <string name="get_verification_code">获取验证码</string>
+    <string name="please_enter_the_verification_code">输入手机验证码</string>
 </resources>

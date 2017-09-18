@@ -10,7 +10,6 @@ import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbinding.R;
 import com.safframework.study.rxbinding.app.BaseActivity;
 import com.safframework.study.rxbinding.utils.RxUtils;
-import com.safframework.utils.RxJavaUtils;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
@@ -92,7 +91,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestVerificationCodeActivity.class);
+                        Intent i = new Intent(MainActivity.this,TestCountDownActivity.class);
                         startActivity(i);
                     }
                 });
