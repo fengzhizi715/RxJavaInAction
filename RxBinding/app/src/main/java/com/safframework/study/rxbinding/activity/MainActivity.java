@@ -28,6 +28,12 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text4)
     TextView text4;
 
+    @InjectView(R.id.text5)
+    TextView text5;
+
+    @InjectView(R.id.text6)
+    TextView text6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +79,26 @@ public class MainActivity extends BaseActivity {
                     public void accept(@NonNull Object o) throws Exception {
 
                         Intent i = new Intent(MainActivity.this,TestEditTextActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        RxView.clicks(text5)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestVerificationCodeActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        RxView.clicks(text6)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestRecyclerViewActivity.class);
                         startActivity(i);
                     }
                 });

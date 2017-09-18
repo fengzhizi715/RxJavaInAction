@@ -21,8 +21,6 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 
-import static com.safframework.utils.ToastUtilsKt.showShort;
-
 /**
  * Created by tony on 2017/9/18.
  */
