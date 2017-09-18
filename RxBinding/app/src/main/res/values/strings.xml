@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RxBinding</string>
+
+    <string name="please_enter_phone_number">手机号</string>
+    <string name="please_enter_the_password">密码</string>
 </resources>

@@ -18,7 +18,7 @@
         </activity>
 
         <activity
-            android:name=".activity.TestClickActivity"
+            android:name=".activity.TestEditTextActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
     </application>

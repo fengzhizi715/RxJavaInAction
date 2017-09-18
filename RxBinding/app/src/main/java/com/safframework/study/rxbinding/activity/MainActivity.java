@@ -1,7 +1,6 @@
 package com.safframework.study.rxbinding.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,8 +10,6 @@ import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbinding.R;
 import com.safframework.study.rxbinding.app.BaseActivity;
 import com.safframework.study.rxbinding.utils.RxUtils;
-
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -67,6 +64,16 @@ public class MainActivity extends BaseActivity {
                     public void accept(@NonNull Object o) throws Exception {
 
                         Toast.makeText(MainActivity.this,"防止重复点击",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RxView.clicks(text4)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestEditTextActivity.class);
+                        startActivity(i);
                     }
                 });
     }
