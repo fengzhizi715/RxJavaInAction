@@ -10,6 +10,7 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.rxbinding.R;
 import com.safframework.study.rxbinding.app.BaseActivity;
+import com.safframework.study.rxbinding.utils.RxUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,6 +57,16 @@ public class MainActivity extends BaseActivity {
                     public void accept(@NonNull Object o) throws Exception {
 
                         Toast.makeText(MainActivity.this,"演示长点击事件",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RxView.clicks(text3)
+                .compose(RxUtils.useRxViewTransformer(MainActivity.this))
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Toast.makeText(MainActivity.this,"防止重复点击",Toast.LENGTH_SHORT).show();
                     }
                 });
     }
