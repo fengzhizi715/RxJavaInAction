@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectView;
@@ -20,6 +21,15 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text1)
     TextView text1;
 
+    @InjectView(R.id.text2)
+    TextView text2;
+
+    @InjectView(R.id.text3)
+    TextView text3;
+
+    @InjectView(R.id.text4)
+    TextView text4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +42,20 @@ public class MainActivity extends BaseActivity {
     private void initViews() {
 
         RxView.clicks(text1)
-                .throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(new Consumer<Object>() {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestClickActivity.class);
-                        startActivity(i);
+                        Toast.makeText(MainActivity.this,"演示点击事件",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RxView.longClicks(text2)
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Toast.makeText(MainActivity.this,"演示长点击事件",Toast.LENGTH_SHORT).show();
                     }
                 });
     }
