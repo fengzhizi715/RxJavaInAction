@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
+ * 用runAsync()创建CompletableFuture
  * Created by tony on 2017/9/16.
  */
 public class TestCompletableFuture1 {

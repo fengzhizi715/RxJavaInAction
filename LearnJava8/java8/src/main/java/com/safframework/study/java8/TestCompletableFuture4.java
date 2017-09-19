@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
+ * 如果future已经执行完毕能够返回结果，此时再调用complete(T t)则会无效。
  * Created by tony on 2017/9/16.
  */
 public class TestCompletableFuture4 {

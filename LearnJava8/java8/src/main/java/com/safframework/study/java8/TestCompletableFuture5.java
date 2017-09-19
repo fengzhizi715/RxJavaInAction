@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
+ * future调用completeExceptionally()
  * Created by tony on 2017/9/16.
  */
 public class TestCompletableFuture5 {

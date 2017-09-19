@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutionException;
 
 
 /**
+ * future调用complete()
  * Created by tony on 2017/9/16.
  */
 public class TestCompletableFuture3 {
