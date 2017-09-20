@@ -10,12 +10,12 @@ public class TestCompletableFuture7 {
 
     public static void main(String[] args) {
 
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "10");
-
-        CompletableFuture<Double> endFuture = future.thenApply(Integer::parseInt).thenApply(i->i*10.0);
+        CompletableFuture<Double> future = CompletableFuture.supplyAsync(() -> "10")
+                .thenApply(Integer::parseInt)
+                .thenApply(i->i*10.0);
 
         try {
-            System.out.println(endFuture.get());
+            System.out.println(future.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
