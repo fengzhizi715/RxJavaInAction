@@ -4,16 +4,18 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
- * 用supplyAsync()创建CompletableFuture
+ * 用runAsync()创建CompletableFuture
  * Created by tony on 2017/9/16.
  */
-public class TestCompletableFuture2 {
+public class TestCompletableFutureWithRunAsync {
 
     public static void main(String[] args) {
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello");
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            System.out.println("Hello");
+        });
 
         try {
-            System.out.println(future.get());
+            future.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
