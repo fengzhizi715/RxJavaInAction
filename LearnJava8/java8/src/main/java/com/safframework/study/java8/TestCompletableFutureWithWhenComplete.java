@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Created by tony on 2017/9/20.
  */
-public class TestCompletableFuture12 {
+public class TestCompletableFutureWithWhenComplete {
 
     public static void main(String[] args) {
 

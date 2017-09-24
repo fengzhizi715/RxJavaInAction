@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by tony on 2017/9/20.
  */
-public class TestCompletableFuture14 {
+public class TestCompletableFutureWithThenAccept {
 
     public static void main(String[] args) {
 

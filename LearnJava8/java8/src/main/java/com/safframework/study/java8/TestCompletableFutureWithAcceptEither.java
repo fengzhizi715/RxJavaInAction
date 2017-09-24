@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by tony on 2017/9/21.
  */
-public class TestCompletableFuture15 {
+public class TestCompletableFutureWithAcceptEither {
 
     public static void main(String[] args) {
 
