@@ -2,17 +2,18 @@ package com.safframework.study.java8;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.function.Supplier;
 
 /**
  * Created by tony on 2017/9/19.
  */
-public class TestCompletableFuture7 {
+public class TestCompletableFutureWithThenCompose2 {
 
     public static void main(String[] args) {
 
-        CompletableFuture<Double> future = CompletableFuture.supplyAsync(() -> "10")
-                .thenApply(Integer::parseInt)
-                .thenApply(i->i*10.0);
+        CompletableFuture<Double> future = CompletableFuture.supplyAsync(() -> "100")
+                .thenCompose(s -> CompletableFuture.supplyAsync(() -> s + "100"))
+                .thenCompose(s -> CompletableFuture.supplyAsync(() -> Double.parseDouble(s)));
 
         try {
             System.out.println(future.get());
