@@ -4,13 +4,15 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
- * 用supplyAsync()创建CompletableFuture
+ * future调用completeExceptionally()
  * Created by tony on 2017/9/16.
  */
-public class TestCompletableFutureSupplyAsync {
+public class TestCompletableFutureWithCompleteExceptionally {
 
     public static void main(String[] args) {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello");
+
+        future.completeExceptionally(new Exception());
 
         try {
             System.out.println(future.get());
@@ -19,7 +21,5 @@ public class TestCompletableFutureSupplyAsync {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
-        System.out.println("CompletableFuture");
     }
 }

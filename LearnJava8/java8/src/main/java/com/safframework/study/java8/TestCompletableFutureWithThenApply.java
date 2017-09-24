@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by tony on 2017/9/19.
  */
-public class TestCompletableFuture6 {
+public class TestCompletableFutureWithThenApply {
 
     public static void main(String[] args) {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello")
