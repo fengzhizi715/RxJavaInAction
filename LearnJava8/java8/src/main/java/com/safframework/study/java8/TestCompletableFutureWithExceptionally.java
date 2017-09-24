@@ -8,7 +8,7 @@ import java.util.function.Function;
 /**
  * Created by tony on 2017/9/21.
  */
-public class TestCompletableFuture19 {
+public class TestCompletableFutureWithExceptionally {
 
     public static void main(String[] args) {
 

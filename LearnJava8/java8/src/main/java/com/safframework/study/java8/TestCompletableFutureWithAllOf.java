@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * Created by tony on 2017/9/21.
  */
-public class TestCompletableFuture17 {
+public class TestCompletableFutureWithAllOf {
 
     public static void main(String[] args) {
 
