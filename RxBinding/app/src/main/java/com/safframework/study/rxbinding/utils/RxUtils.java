@@ -8,7 +8,6 @@ import com.safframework.utils.RxJavaUtils;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by tony on 2017/9/18.

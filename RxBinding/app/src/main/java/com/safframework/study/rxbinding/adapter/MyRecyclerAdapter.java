@@ -53,7 +53,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                         @Override
                         public void accept(Object o) throws Exception {
 
-                            Toast.makeText(mContext,item,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"点击"+item,Toast.LENGTH_SHORT).show();
                         }
                     });
         }
