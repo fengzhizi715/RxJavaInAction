@@ -1,11 +1,22 @@
 package com.safframework.study.retrofit.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
+import com.jakewharton.rxbinding2.view.RxView;
+import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.retrofit.R;
+import com.safframework.study.retrofit.app.BaseActivity;
+import com.safframework.study.retrofit.utils.RxUtils;
 
-public class MainActivity extends AppCompatActivity {
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+
+public class MainActivity extends BaseActivity {
+
+    @InjectView(R.id.text1)
+    TextView text1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
 
+        RxView.clicks(text1)
+                .compose(RxUtils.useRxViewTransformer(MainActivity.this))
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
 
+                        Intent i = new Intent(MainActivity.this,TestRxAndroidActivity.class);
+                        startActivity(i);
+                    }
+                });
     }
 }
