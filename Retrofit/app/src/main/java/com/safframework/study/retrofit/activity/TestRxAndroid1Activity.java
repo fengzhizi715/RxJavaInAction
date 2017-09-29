@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.safframework.injectview.annotations.InjectView;
+import com.safframework.log.L;
 import com.safframework.study.retrofit.R;
 import com.safframework.study.retrofit.app.BaseActivity;
 
@@ -45,6 +46,7 @@ public class TestRxAndroid1Activity extends BaseActivity {
             @Override
             public void subscribe(ObservableEmitter<Bitmap> e) throws Exception {
 
+                L.i("e.onNext()");
                 e.onNext(getBitmap());
             }
         })
@@ -57,6 +59,7 @@ public class TestRxAndroid1Activity extends BaseActivity {
                     public void accept(Bitmap bitmap) throws Exception {
 
                         if (bitmap != null) {
+                            L.i("bitmap is not null");
                             imageView.setImageBitmap(bitmap);
                         }
                     }
