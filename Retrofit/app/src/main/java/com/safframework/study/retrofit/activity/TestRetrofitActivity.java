@@ -10,6 +10,7 @@ import com.safframework.study.retrofit.app.BaseActivity;
 import com.safframework.study.retrofit.http.RetrofitManager;
 import com.safframework.study.retrofit.model.PM10Model;
 import com.safframework.study.retrofit.model.PM25Model;
+import com.safframework.study.retrofit.model.SO2Model;
 import com.safframework.tony.common.utils.Preconditions;
 import com.safframework.utils.RxJavaUtils;
 
@@ -41,6 +42,12 @@ public class TestRetrofitActivity extends BaseActivity {
     @InjectView(R.id.pm10_24h)
     TextView pm10_24h;
 
+    @InjectView(R.id.so2)
+    TextView so2;
+
+    @InjectView(R.id.so2_24h)
+    TextView so2_24h;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +73,8 @@ public class TestRetrofitActivity extends BaseActivity {
                                 if ("南门".equals(model.position_name)) {
 
                                     quality.setText("空气质量指数："+model.quality);
-                                    pm2_5.setText("1小时内平均PM2.5："+model.pm2_5);
-                                    pm2_5_24h.setText("24小时滑动平均PM2.5："+model.pm2_5_24h);
+                                    pm2_5.setText("PM2.5 1小时内平均："+model.pm2_5);
+                                    pm2_5_24h.setText("PM2.5 24小时滑动平均："+model.pm2_5_24h);
                                     break;
                                 }
                             }
@@ -87,8 +94,29 @@ public class TestRetrofitActivity extends BaseActivity {
 
                                 if ("南门".equals(model.position_name)) {
 
-                                    pm10.setText("1小时内平均PM10："+model.pm10);
-                                    pm10_24h.setText("24小时滑动平均PM10："+model.pm10_24h);
+                                    pm10.setText("PM10 1小时内平均："+model.pm10);
+                                    pm10_24h.setText("PM10 24小时滑动平均："+model.pm10_24h);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                });
+
+        apiService.so2(cityId,token)
+                .compose(RxJavaUtils.<List<SO2Model>>maybeToMain())
+                .subscribe(new Consumer<List<SO2Model>>() {
+                    @Override
+                    public void accept(List<SO2Model> so2Models) throws Exception {
+
+                        if (Preconditions.isNotBlank(so2Models)){
+
+                            for (SO2Model model:so2Models){
+
+                                if ("南门".equals(model.position_name)) {
+
+                                    so2.setText("二氧化硫1小时平均："+model.so2);
+                                    so2_24h.setText("二氧化硫24小时滑动平均："+model.so2_24h);
                                     break;
                                 }
                             }

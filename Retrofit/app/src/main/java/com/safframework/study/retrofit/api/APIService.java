@@ -2,6 +2,7 @@ package com.safframework.study.retrofit.api;
 
 import com.safframework.study.retrofit.model.PM10Model;
 import com.safframework.study.retrofit.model.PM25Model;
+import com.safframework.study.retrofit.model.SO2Model;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface APIService {
 
     @GET("api/querys/pm10.json")
     Maybe<List<PM10Model>> pm10(@Query("city") String cityId, @Query("token") String token);
+
+    @GET("api/querys/so2.json")
+    Maybe<List<SO2Model>> so2(@Query("city") String cityId, @Query("token") String token);
 }
