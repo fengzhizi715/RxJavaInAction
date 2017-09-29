@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestRxAndroid1Activity.class);
+                        Intent i = new Intent(MainActivity.this,TestRxAndroid2Activity.class);
                         startActivity(i);
                     }
                 });
