@@ -37,10 +37,21 @@ dependencies {
 
     compile "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
 
+    compile "com.squareup.retrofit2:retrofit:${libs.retrofit}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit}"
+
+    compile ('org.ligboy.retrofit2:converter-fastjson-android:2.1.0',{
+        exclude group: 'com.alibaba', module: 'fastjson'
+    })
+
     compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
     apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
     compile "com.safframework.log:saf-log:${libs.saf_log}"
+
+    compile ("com.safframework.log:saf-logginginterceptor:1.0.4",{
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    })
 
     compile ('com.safframework:saf-rxlifecycle:1.0.0',{
         exclude group: 'com.android.support', module: 'appcompat-v7'
@@ -50,4 +61,6 @@ dependencies {
         exclude group: 'tony-common', module: 'tony-common-utils'
     })
     compile "tony-common:tony-common-utils:${libs.tony_common_utils}"
+
+    compile "com.alibaba:fastjson:${libs.fastjson}"
 }

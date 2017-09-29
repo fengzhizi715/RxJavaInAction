@@ -17,6 +17,10 @@ ext {
             rxbinding               : "2.0.0",
             rxrelay                 : "2.0.0",
 
+            retrofit                : "2.3.0",
+
+            fastjson                : "1.1.63.android",
+
             saf_injectview          : "1.1.0",
             saf_injectview_compiler : "1.1.0",
             saf_log                 : "1.2.0",
