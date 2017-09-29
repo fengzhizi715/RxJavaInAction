@@ -1,4 +1,4 @@
-package com.safframework.study.rxbinding;
+package com.safframework.study.retrofit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
