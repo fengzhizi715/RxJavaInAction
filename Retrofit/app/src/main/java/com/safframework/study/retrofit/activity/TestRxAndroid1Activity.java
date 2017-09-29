@@ -25,7 +25,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by tony on 2017/9/29.
  */
 
-public class TestRxAndroidActivity extends BaseActivity {
+public class TestRxAndroid1Activity extends BaseActivity {
 
     @InjectView(R.id.image)
     ImageView imageView;
@@ -33,7 +33,7 @@ public class TestRxAndroidActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_rxandroid);
+        setContentView(R.layout.activity_test_rxandroid1);
 
         initData();
     }

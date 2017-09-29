@@ -18,9 +18,15 @@
         </activity>
 
         <activity
-            android:name=".activity.TestRxAndroidActivity"
+            android:name=".activity.TestRxAndroid1Activity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.TestRxAndroid2Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

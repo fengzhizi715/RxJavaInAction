@@ -18,6 +18,9 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text1)
     TextView text1;
 
+    @InjectView(R.id.text2)
+    TextView text2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,18 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
 
-                        Intent i = new Intent(MainActivity.this,TestRxAndroidActivity.class);
+                        Intent i = new Intent(MainActivity.this,TestRxAndroid1Activity.class);
+                        startActivity(i);
+                    }
+                });
+
+        RxView.clicks(text2)
+                .compose(RxUtils.useRxViewTransformer(MainActivity.this))
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,TestRxAndroid1Activity.class);
                         startActivity(i);
                     }
                 });
