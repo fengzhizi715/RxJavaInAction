@@ -101,21 +101,35 @@ public class TestRetrofitActivity extends BaseActivity {
 
         apiService.pm10(cityId,token)
                 .compose(RxJavaUtils.<List<PM10Model>>maybeToMain())
-                .subscribe(new Consumer<List<PM10Model>>() {
+                .filter(new Predicate<List<PM10Model>>() {
                     @Override
-                    public void accept(List<PM10Model> pm10Models) throws Exception {
+                    public boolean test(List<PM10Model> pm10Models) throws Exception {
+                        return Preconditions.isNotBlank(pm10Models);
+                    }
+                })
+                .flatMap(new Function<List<PM10Model>, MaybeSource<PM10Model>>() {
+                    @Override
+                    public MaybeSource<PM10Model> apply(List<PM10Model> pm10Models) throws Exception {
 
-                        if (Preconditions.isNotBlank(pm10Models)){
+                        for (PM10Model model:pm10Models){
 
-                            for (PM10Model model:pm10Models){
+                            if ("南门".equals(model.position_name)) {
 
-                                if ("南门".equals(model.position_name)) {
-
-                                    pm10.setText("PM10 1小时内平均："+model.pm10);
-                                    pm10_24h.setText("PM10 24小时滑动平均："+model.pm10_24h);
-                                    break;
-                                }
+                                return Maybe.just(model);
                             }
+                        }
+
+                        return null;
+                    }
+                })
+                .subscribe(new Consumer<PM10Model>() {
+                    @Override
+                    public void accept(PM10Model model) throws Exception {
+
+                        if (model!=null) {
+
+                            pm10.setText("PM10 1小时内平均："+model.pm10);
+                            pm10_24h.setText("PM10 24小时滑动平均："+model.pm10_24h);
                         }
                     }
                 });
