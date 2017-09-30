@@ -16,7 +16,11 @@ import com.safframework.utils.RxJavaUtils;
 
 import java.util.List;
 
+import io.reactivex.Maybe;
+import io.reactivex.MaybeSource;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 
 /**
  * Created by tony on 2017/9/29.
@@ -62,22 +66,35 @@ public class TestRetrofitActivity extends BaseActivity {
 
         apiService.pm25(cityId,token)
                 .compose(RxJavaUtils.<List<PM25Model>>maybeToMain())
-                .subscribe(new Consumer<List<PM25Model>>() {
+                .filter(new Predicate<List<PM25Model>>() {
                     @Override
-                    public void accept(List<PM25Model> pm25Models) throws Exception {
+                    public boolean test(List<PM25Model> pm25Models) throws Exception {
+                        return Preconditions.isNotBlank(pm25Models);
+                    }
+                })
+                .flatMap(new Function<List<PM25Model>, MaybeSource<PM25Model>>() {
+                    @Override
+                    public MaybeSource<PM25Model> apply(List<PM25Model> pm25Models) throws Exception {
 
-                        if (Preconditions.isNotBlank(pm25Models)){
+                        for (PM25Model model:pm25Models){
 
-                            for (PM25Model model:pm25Models){
+                            if ("南门".equals(model.position_name)) {
 
-                                if ("南门".equals(model.position_name)) {
-
-                                    quality.setText("空气质量指数："+model.quality);
-                                    pm2_5.setText("PM2.5 1小时内平均："+model.pm2_5);
-                                    pm2_5_24h.setText("PM2.5 24小时滑动平均："+model.pm2_5_24h);
-                                    break;
-                                }
+                                return Maybe.just(model);
                             }
+                        }
+
+                        return null;
+                    }
+                })
+                .subscribe(new Consumer<PM25Model>() {
+                    @Override
+                    public void accept(PM25Model model) throws Exception {
+
+                        if (model!=null) {
+                            quality.setText("空气质量指数："+model.quality);
+                            pm2_5.setText("PM2.5 1小时内平均："+model.pm2_5);
+                            pm2_5_24h.setText("PM2.5 24小时滑动平均："+model.pm2_5_24h);
                         }
                     }
                 });
