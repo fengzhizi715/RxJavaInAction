@@ -136,21 +136,35 @@ public class TestRetrofitActivity extends BaseActivity {
 
         apiService.so2(cityId,token)
                 .compose(RxJavaUtils.<List<SO2Model>>maybeToMain())
-                .subscribe(new Consumer<List<SO2Model>>() {
+                .filter(new Predicate<List<SO2Model>>() {
                     @Override
-                    public void accept(List<SO2Model> so2Models) throws Exception {
+                    public boolean test(List<SO2Model> so2Models) throws Exception {
+                        return Preconditions.isNotBlank(so2Models);
+                    }
+                })
+                .flatMap(new Function<List<SO2Model>, MaybeSource<SO2Model>>() {
+                    @Override
+                    public MaybeSource<SO2Model> apply(List<SO2Model> so2Models) throws Exception {
 
-                        if (Preconditions.isNotBlank(so2Models)){
+                        for (SO2Model model:so2Models){
 
-                            for (SO2Model model:so2Models){
+                            if ("南门".equals(model.position_name)) {
 
-                                if ("南门".equals(model.position_name)) {
-
-                                    so2.setText("二氧化硫1小时平均："+model.so2);
-                                    so2_24h.setText("二氧化硫24小时滑动平均："+model.so2_24h);
-                                    break;
-                                }
+                                return Maybe.just(model);
                             }
+                        }
+
+                        return null;
+                    }
+                })
+                .subscribe(new Consumer<SO2Model>() {
+                    @Override
+                    public void accept(SO2Model model) throws Exception {
+
+                        if (model!=null) {
+
+                            so2.setText("二氧化硫1小时平均："+model.so2);
+                            so2_24h.setText("二氧化硫24小时滑动平均："+model.so2_24h);
                         }
                     }
                 });
