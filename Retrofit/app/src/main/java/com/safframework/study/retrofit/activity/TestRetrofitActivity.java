@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.safframework.injectview.annotations.InjectView;
+import com.safframework.log.L;
 import com.safframework.study.retrofit.R;
 import com.safframework.study.retrofit.api.APIService;
 import com.safframework.study.retrofit.app.BaseActivity;
@@ -69,6 +70,7 @@ public class TestRetrofitActivity extends BaseActivity {
                 .filter(new Predicate<List<PM25Model>>() {
                     @Override
                     public boolean test(List<PM25Model> pm25Models) throws Exception {
+
                         return Preconditions.isNotBlank(pm25Models);
                     }
                 })
@@ -79,7 +81,6 @@ public class TestRetrofitActivity extends BaseActivity {
                         for (PM25Model model:pm25Models){
 
                             if ("南门".equals(model.position_name)) {
-
                                 return Maybe.just(model);
                             }
                         }
@@ -91,11 +92,16 @@ public class TestRetrofitActivity extends BaseActivity {
                     @Override
                     public void accept(PM25Model model) throws Exception {
 
-                        if (model!=null) {
-                            quality.setText("空气质量指数："+model.quality);
-                            pm2_5.setText("PM2.5 1小时内平均："+model.pm2_5);
-                            pm2_5_24h.setText("PM2.5 24小时滑动平均："+model.pm2_5_24h);
+                        if (model != null) {
+                            quality.setText("空气质量指数：" + model.quality);
+                            pm2_5.setText("PM2.5 1小时内平均：" + model.pm2_5);
+                            pm2_5_24h.setText("PM2.5 24小时滑动平均：" + model.pm2_5_24h);
                         }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        System.out.println(throwable.getMessage());
                     }
                 });
 
@@ -132,6 +138,11 @@ public class TestRetrofitActivity extends BaseActivity {
                             pm10_24h.setText("PM10 24小时滑动平均："+model.pm10_24h);
                         }
                     }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        System.out.println(throwable.getMessage());
+                    }
                 });
 
         apiService.so2(cityId,token)
@@ -166,6 +177,11 @@ public class TestRetrofitActivity extends BaseActivity {
                             so2.setText("二氧化硫1小时平均："+model.so2);
                             so2_24h.setText("二氧化硫24小时滑动平均："+model.so2_24h);
                         }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        System.out.println(throwable.getMessage());
                     }
                 });
     }
