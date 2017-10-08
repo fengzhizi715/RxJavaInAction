@@ -1,9 +1,11 @@
-package com.safframework.study.cv4j;
+package com.safframework.study.cv4j.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.safframework.study.cv4j.R;
+import com.safframework.study.cv4j.app.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
