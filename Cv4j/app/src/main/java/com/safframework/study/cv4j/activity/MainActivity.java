@@ -45,17 +45,17 @@ public class MainActivity extends BaseActivity {
                     }
                 });
 
-//        RxView.clicks(text2)
-//                .compose(RxUtils.useRxViewTransformer(MainActivity.this))
-//                .subscribe(new Consumer<Object>() {
-//                    @Override
-//                    public void accept(@NonNull Object o) throws Exception {
-//
-//                        Intent i = new Intent(MainActivity.this,TestRxAndroid2Activity.class);
-//                        startActivity(i);
-//                    }
-//                });
-//
+        RxView.clicks(text2)
+                .compose(RxUtils.useRxViewTransformer(MainActivity.this))
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(@NonNull Object o) throws Exception {
+
+                        Intent i = new Intent(MainActivity.this,GridViewFilterActivity.class);
+                        startActivity(i);
+                    }
+                });
+
         RxView.clicks(text3)
                 .compose(RxUtils.useRxViewTransformer(MainActivity.this))
                 .subscribe(new Consumer<Object>() {

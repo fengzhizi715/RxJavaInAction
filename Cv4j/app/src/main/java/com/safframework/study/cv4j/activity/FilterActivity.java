@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.cv4j.core.filters.NatureFilter;
 import com.cv4j.rxjava.RxImageData;

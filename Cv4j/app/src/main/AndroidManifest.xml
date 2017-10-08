@@ -23,6 +23,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".activity.GridViewFilterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".activity.DslActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
