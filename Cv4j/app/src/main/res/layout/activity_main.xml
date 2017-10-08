@@ -42,7 +42,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/textview_border"
         android:gravity="center"
-        android:text="基于dsl来实现滤镜效果"
+        android:text="基于DSL方式实现滤镜(只适用于Kotlin)"
         app:layout_constraintEnd_toEndOf="@id/constraintLayout"
         app:layout_constraintStart_toStartOf="@id/constraintLayout"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"

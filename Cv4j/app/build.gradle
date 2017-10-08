@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -42,10 +44,6 @@ dependencies {
 
     compile "com.safframework.log:saf-log:${libs.saf_log}"
 
-    compile ("com.safframework.log:saf-logginginterceptor:1.0.4",{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
-
     compile ('com.safframework:saf-rxlifecycle:1.0.0',{
         exclude group: 'com.android.support', module: 'appcompat-v7'
     })
@@ -55,5 +53,5 @@ dependencies {
     })
     compile "tony-common:tony-common-utils:${libs.tony_common_utils}"
 
-    compile "com.alibaba:fastjson:${libs.fastjson}"
+    compile 'com.cv4j:rxcv4j:0.1.1.1'
 }
