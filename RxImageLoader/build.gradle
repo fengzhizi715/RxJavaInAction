@@ -13,7 +13,10 @@ ext {
             supportVersion          : "25.3.1",
 
             rxandroid               : "2.0.1",
-            rxjava                  : "2.1.0",
+            rxjava                  : "2.1.5",
+
+            saf_injectview          : "1.1.0",
+            saf_injectview_compiler : "1.1.0",
 
             tony_common_utils       : "1.1.0"
     ]
@@ -24,6 +27,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
