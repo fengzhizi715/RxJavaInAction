@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.safframework.study.app;
+package com.safframework.study.imageloader.app;
 
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.ComponentCallbacks2;
 
-import com.safframework.study.rximageloader.RxImageLoader;
-import com.safframework.study.rximageloader.Utils;
+import com.safframework.study.imageloader.imageloader.RxImageLoader;
+import com.safframework.study.imageloader.imageloader.Utils;
 
 /**
  *

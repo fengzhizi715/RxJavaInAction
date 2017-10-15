@@ -1,10 +1,10 @@
-package com.safframework.study.app;
+package com.safframework.study.imageloader.app;
 
 import android.annotation.TargetApi;
 import android.content.ComponentCallbacks2;
 import android.support.v7.app.AppCompatActivity;
 
-import com.safframework.study.rximageloader.Utils;
+import com.safframework.study.imageloader.imageloader.Utils;
 
 /**
  * Created by Tony Shen on 2017/6/23.
