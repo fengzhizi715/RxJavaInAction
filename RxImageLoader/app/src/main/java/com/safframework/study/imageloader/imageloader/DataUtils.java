@@ -1,4 +1,4 @@
-package com.safframework.study.rximageloader;
+package com.safframework.study.imageloader.imageloader;
 
 /**
  * Created by Tony Shen on 2016/11/15.

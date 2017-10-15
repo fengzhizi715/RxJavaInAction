@@ -37,6 +37,4 @@ dependencies {
 
     compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
     apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
-
-    compile project(':library')
 }

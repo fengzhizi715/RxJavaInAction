@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.safframework.study.rximageloader;
+package com.safframework.study.imageloader.imageloader;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;

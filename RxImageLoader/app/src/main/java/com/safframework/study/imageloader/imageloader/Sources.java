@@ -1,4 +1,4 @@
-package com.safframework.study.rximageloader;
+package com.safframework.study.imageloader.imageloader;
 
 import android.content.Context;
 import android.widget.ImageView;

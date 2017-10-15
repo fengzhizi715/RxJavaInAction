@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.safframework.study.rximageloader;
+package com.safframework.study.imageloader.imageloader;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
