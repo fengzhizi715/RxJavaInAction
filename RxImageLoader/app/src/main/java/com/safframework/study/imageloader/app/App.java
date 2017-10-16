@@ -46,13 +46,13 @@ public class App extends Application {
 		super.onLowMemory();
 		imageLoader.clearMemCache();
 	}
-	
+
 	@Override
 	@TargetApi(14)
 	public void onTrimMemory(int level) {
 		if (Utils.isICSOrHigher()) {
 			super.onTrimMemory(level);
-			
+
 			if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) {
 				imageLoader.clearMemCache();
 			}

@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.ComponentCallbacks2;
 import android.support.v7.app.AppCompatActivity;
 
+import com.safframework.injectview.Injector;
 import com.safframework.study.imageloader.imageloader.Utils;
 
 /**
@@ -11,6 +12,11 @@ import com.safframework.study.imageloader.imageloader.Utils;
  */
 
 public class BaseActivity extends AppCompatActivity {
+
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        Injector.injectInto(this);
+    }
 
     @Override
     public void onLowMemory() {
