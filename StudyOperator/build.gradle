@@ -1,4 +1,30 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    configuration = [
+            package          : "com.safframework.study.operator",
+            buildToolsVersion: "25.0.2",
+            compileVersion   : 25,
+            minSdk           : 9,
+            targetSdk        : 25,
+            version_code     : 1,
+            version_name     : "0.0.1"
+    ]
+
+    libraries = [
+            supportVersion          : "25.1.1",
+
+            rxandroid               : "2.0.1",
+            rxjava                  : "2.1.5",
+            rxbinding               : "2.0.0",
+
+            saf_injectview          : "1.1.0",
+            saf_injectview_compiler : "1.1.0",
+            saf_log                 : "1.2.0",
+            saf_aop                 : "1.1.4",
+
+            tony_common_utils       : "1.1.0"
+    ]
+}
 
 buildscript {
     repositories {
@@ -6,6 +32,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.0.10'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -15,6 +43,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
