@@ -10,7 +10,7 @@ android {
     buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.safframework.study.operator"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -53,6 +53,6 @@ dependencies {
     compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
     apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
-//    compile 'thereisnospon.codeview:codeview:0.3.1'
-//    compile 'com.github.tiagohm.MarkdownView:library:0.13.1'
+    compile 'thereisnospon.codeview:codeview:0.3.1'
+    compile 'com.github.tiagohm.MarkdownView:library:0.13.1'
 }
