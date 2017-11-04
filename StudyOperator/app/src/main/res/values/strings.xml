@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">StudyOperator</string>
+
+    <string name="home">主页</string>
+    <string name="create">创建操作符</string>
+
+    <string name="finish_by_back_again">再按一次退出程序</string>
 </resources>
