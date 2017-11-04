@@ -27,6 +27,8 @@ ext {
 }
 
 buildscript {
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+
     repositories {
         jcenter()
     }
