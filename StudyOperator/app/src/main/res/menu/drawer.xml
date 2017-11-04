@@ -21,13 +21,13 @@
         <item
             android:id="@+id/drawer_home"
             android:checked="true"
-            android:icon="@drawable/menu_home"
+            android:icon="@drawable/ic_home_24dp"
             android:title="@string/home" />
 
         <item
             android:id="@+id/drawer_create"
             android:checked="true"
-            android:icon="@drawable/menu_create"
+            android:icon="@drawable/ic_create_24dp"
             android:title="@string/create" />
 
     </group>
