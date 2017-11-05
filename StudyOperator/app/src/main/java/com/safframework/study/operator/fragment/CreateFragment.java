@@ -4,10 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.Injector;
+import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseFragment;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by tony on 2017/11/4.
@@ -15,11 +20,28 @@ import com.safframework.study.operator.app.BaseFragment;
 
 public class CreateFragment extends BaseFragment {
 
+    @InjectView(R.id.text1)
+    TextView createView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_create, container, false);
         Injector.injectInto(this, v);
 
+        initViews();
+
         return v;
+    }
+
+    private void initViews() {
+        RxView.clicks(createView)
+
+                .subscribe(new Consumer<Object>() {
+
+                    @Override
+                    public void accept(Object o) throws Exception {
+
+                    }
+                });
     }
 }
