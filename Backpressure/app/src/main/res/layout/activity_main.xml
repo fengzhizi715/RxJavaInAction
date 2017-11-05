@@ -47,6 +47,6 @@
         app:layout_constraintStart_toStartOf="@id/constraintLayout"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.25"/>
+        app:layout_constraintVertical_bias="0.4"/>
 
 </android.support.constraint.ConstraintLayout>
