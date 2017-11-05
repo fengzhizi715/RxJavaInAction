@@ -11,6 +11,7 @@ import com.safframework.injectview.Injector;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseFragment;
+import com.safframework.study.operator.utils.RxUtils;
 
 import io.reactivex.functions.Consumer;
 
@@ -35,7 +36,7 @@ public class CreateFragment extends BaseFragment {
 
     private void initViews() {
         RxView.clicks(createView)
-
+                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<Object>() {
 
                     @Override
