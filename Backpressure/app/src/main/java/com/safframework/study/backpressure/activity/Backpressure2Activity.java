@@ -12,10 +12,10 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by tony on 2017/11/5.
+ * Created by tony on 2017/11/6.
  */
 
-public class BackpressureActivity extends BaseActivity {
+public class Backpressure2Activity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class BackpressureActivity extends BaseActivity {
         Observable.create(new Observable.OnSubscribe<Integer>() {
             @Override
             public void call(Subscriber<? super Integer> subscriber) {
-                for (int i = 0; ; i++) {   //无限循环发事件
+                for (int i = 0; i < 17; i++) {
                     subscriber.onNext(i);
                 }
             }
@@ -33,7 +33,7 @@ public class BackpressureActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Log.d("BackpressureActivity", String.valueOf(integer));
+                        Log.d("Backpressure2Activity", String.valueOf(integer));
                     }
                 });
     }

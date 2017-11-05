@@ -23,7 +23,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.BackpressureActivity"
+            android:name=".activity.Backpressure1Activity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
     </application>
