@@ -1,0 +1,52 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    configuration = [
+            buildToolsVersion: "25.0.2",
+            compileVersion   : 25,
+            minSdk           : 14,
+            targetSdk        : 25,
+            version_code     : 1,
+            version_name     : "1.0"
+    ]
+
+    libraries = [
+            supportVersion          : "25.3.1",
+
+            rxandroid               : "2.0.1",
+            rxjava                  : "2.1.5",
+            rxbinding               : "2.0.0",
+            rxrelay                 : "2.0.0",
+
+            retrofit                : "2.3.0",
+
+            fastjson                : "1.1.63.android",
+
+            saf_injectview          : "1.1.0",
+            saf_injectview_compiler : "1.1.0",
+            saf_log                 : "1.2.0",
+
+            tony_common_utils       : "1.1.0"
+    ]
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
