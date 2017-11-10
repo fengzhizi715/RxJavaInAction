@@ -106,6 +106,10 @@ public class MainActivity extends BaseActivity {
                 menuManager.show(MenuManager.MenuType.CREATE);
                 break;
 
+            case R.id.drawer_combining:
+                menuManager.show(MenuManager.MenuType.COMBINING);
+                break;
+
             default:
                 break;
         }

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.safframework.study.operator.R;
+import com.safframework.study.operator.fragment.CombiningFragment;
 import com.safframework.study.operator.fragment.CreateFragment;
 import com.safframework.study.operator.fragment.HomeFragment;
 
@@ -21,7 +22,8 @@ public class MenuManager {
     public enum MenuType {
 
         HOME("RxJava介绍",false),
-        CREATE("创建操作符",true);
+        CREATE("创建操作符",true),
+        COMBINING("结合操作符",true);
 
         public final String title;
         public final boolean removed;
@@ -88,6 +90,10 @@ public class MenuManager {
 
             case CREATE:
                 fragment = new CreateFragment();
+                break;
+
+            case COMBINING:
+                fragment = new CombiningFragment();
                 break;
 
             default:

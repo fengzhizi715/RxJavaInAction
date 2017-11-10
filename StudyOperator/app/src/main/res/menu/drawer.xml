@@ -30,5 +30,11 @@
             android:icon="@drawable/ic_create_24dp"
             android:title="@string/create" />
 
+        <item
+            android:id="@+id/drawer_combining"
+            android:checked="true"
+            android:icon="@drawable/ic_combining_24dp"
+            android:title="@string/combining" />
+
     </group>
 </menu>
