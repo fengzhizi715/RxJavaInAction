@@ -42,12 +42,13 @@ dependencies {
     compile "com.jakewharton.rxrelay2:rxrelay:${libs.rxrelay}"
     /**********  rxjava相关end **********/
 
+    /**********  tony's library start **********/
+
     compile "com.safframework.log:saf-log:${libs.saf_log}"
     compile "com.safframework:saf-aop:${libs.saf_aop}"
 
-
-    compile 'com.safframework.utils:saf-kotlin-ext:0.0.1.1'
-    compile ('com.safframework.utils:saf-kotlin-utils:0.0.2.8',{
+    compile "com.safframework.utils:saf-kotlin-ext:${libs.saf_kotlin_ext}"
+    compile ("com.safframework.utils:saf-kotlin-utils:${libs.saf_kotlin_utils}",{
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'tony-common', module: 'tony-common-utils'
     })
@@ -55,8 +56,11 @@ dependencies {
     compile ('com.safframework:saf-rxlifecycle:1.0.0',{
         exclude group: 'com.android.support', module: 'appcompat-v7'
     })
+    /**********  tony's library end **********/
 
+    /**********  第三方控件start **********/
     compile 'thereisnospon.codeview:codeview:0.3.1'
     compile 'com.github.tiagohm.MarkdownView:library:0.13.1'
+    /**********  第三方控件end **********/
 
 }

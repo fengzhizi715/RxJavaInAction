@@ -22,6 +22,8 @@ ext {
             saf_injectview_compiler : "1.1.0",
             saf_log                 : "1.2.0",
             saf_aop                 : "1.1.4",
+            saf_kotlin_utils        : "0.0.3.1",
+            saf_kotlin_ext          : "0.0.1.1",
 
             tony_common_utils       : "1.1.0"
     ]
