@@ -23,7 +23,7 @@ public class MenuManager {
 
         HOME("RxJava介绍",false),
         CREATE("创建操作符",true),
-        COMBINING("结合操作符",true);
+        COMBINING("合并操作符",true);
 
         public final String title;
         public final boolean removed;
