@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Getter
 @RequiredArgsConstructor
-public class DelayedTask implements ITask {
+public class MockTask implements ITask {
 
     /**
      * Defines how many seconds the task will wait before it will finish.
@@ -57,8 +57,8 @@ public class DelayedTask implements ITask {
      *
      * @return task
      */
-    public static DelayedTask notDelayedTask() {
-        return new DelayedTask(0);
+    public static MockTask notDelayedTask() {
+        return new MockTask(0);
     }
 
     /**
@@ -66,7 +66,7 @@ public class DelayedTask implements ITask {
      *
      * @return task
      */
-    public static DelayedTask fiveSecondsDelayedTask() {
-        return new DelayedTask(5);
+    public static MockTask fiveSecondsDelayedTask() {
+        return new MockTask(5);
     }
 }

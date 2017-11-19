@@ -2,7 +2,7 @@ package com.safframework.study.task.web.controller;
 
 import com.safframework.study.task.core.common.ITask;
 import com.safframework.study.task.core.impl.ConcurrentTasksExecutor;
-import com.safframework.study.task.core.impl.DelayedTask;
+import com.safframework.study.task.core.impl.MockTask;
 import com.safframework.study.task.web.dto.ApiResponseDTO;
 import com.safframework.study.task.web.dto.ErrorResponseDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class TasksController {
         StopWatch watch = new StopWatch();
         watch.start();
 
-        List<ITask> delayedTasks = IntStream.of(taskDelaysInSeconds).mapToObj(DelayedTask::new).collect(Collectors.toList());
+        List<ITask> delayedTasks = IntStream.of(taskDelaysInSeconds).mapToObj(MockTask::new).collect(Collectors.toList());
         new ConcurrentTasksExecutor(numberOfConcurrentThreads, delayedTasks).execute();
 
         watch.stop();
@@ -39,7 +39,7 @@ public class TasksController {
         StopWatch watch = new StopWatch();
         watch.start();
 
-        IntStream.of(taskDelaysInSeconds).mapToObj(DelayedTask::new).forEach(DelayedTask::execute);
+        IntStream.of(taskDelaysInSeconds).mapToObj(MockTask::new).forEach(MockTask::execute);
 
         watch.stop();
         return new ApiResponseDTO(watch.getTotalTimeSeconds());
