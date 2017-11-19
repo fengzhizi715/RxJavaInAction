@@ -22,3 +22,5 @@ RxBinding是Android工程，使用Android Studio打开
 RxBus是Android工程，使用Android Studio打开
 
 StudyOperator是Android工程，使用Android Studio打开(还未完成)
+
+Tasks是Java工程，使用IntelliJ Idea打开
