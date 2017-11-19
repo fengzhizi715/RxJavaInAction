@@ -26,8 +26,10 @@ public class TasksController {
     public ApiResponseDTO checkConcurrent(@RequestParam("task") int[] taskDelaysInSeconds, @RequestParam("threads") int numberOfConcurrentThreads) {
         StopWatch watch = new StopWatch();
         watch.start();
+
         List<ITask> delayedTasks = IntStream.of(taskDelaysInSeconds).mapToObj(DelayedTask::new).collect(Collectors.toList());
         new ConcurrentTasksExecutor(numberOfConcurrentThreads, delayedTasks).execute();
+
         watch.stop();
         return new ApiResponseDTO(watch.getTotalTimeSeconds());
     }
@@ -36,7 +38,9 @@ public class TasksController {
     public ApiResponseDTO checkSequential(@RequestParam("task") int[] taskDelaysInSeconds) {
         StopWatch watch = new StopWatch();
         watch.start();
+
         IntStream.of(taskDelaysInSeconds).mapToObj(DelayedTask::new).forEach(DelayedTask::execute);
+
         watch.stop();
         return new ApiResponseDTO(watch.getTotalTimeSeconds());
     }

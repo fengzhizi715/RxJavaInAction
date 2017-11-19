@@ -23,7 +23,11 @@ public class ConcurrentTasksExecutor implements ITask {
     private final Collection<ITask> tasks;
 
     public ConcurrentTasksExecutor(int numberOfConcurrentThreads, Collection<ITask> tasks) {
-//        Preconditions.checkArgument(numberOfConcurrentThreads > 0, "Amount of threads must be higher than zero.");
+
+        if (numberOfConcurrentThreads<0) {
+            throw new RuntimeException("Amount of threads must be higher than zero.");
+        }
+
         this.numberOfConcurrentThreads = numberOfConcurrentThreads;
         this.tasks = tasks;
     }

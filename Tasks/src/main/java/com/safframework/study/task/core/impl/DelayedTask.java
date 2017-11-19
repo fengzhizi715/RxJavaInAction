@@ -12,24 +12,29 @@ import java.util.concurrent.TimeUnit;
 @Getter
 @RequiredArgsConstructor
 public class DelayedTask implements ITask {
+
     /**
      * Defines how many seconds the task will wait before it will finish.
      * Zero means that the task will finish immediately.
      */
     private final int delayInSeconds;
+
     /**
      * Stores information if task was started.
      */
     private boolean started;
+
     /**
      * Stores information if task was successfully finished.
      */
     private boolean finishedSuccessfully;
+
     /**
      * Stores information if the task was interrupted.
      * It can happen if the thread that is running this task was killed.
      */
     private boolean interrupted;
+
     /**
      * Stores the thread identifier in which the task was executed.
      */
