@@ -22,6 +22,17 @@ import java.util.stream.IntStream;
 @RequestMapping("/tasks")
 public class TasksController {
 
+    @GetMapping("/sequential")
+    public ApiResponseDTO sequential(@RequestParam("task") int[] taskDelaysInSeconds) {
+        StopWatch watch = new StopWatch();
+        watch.start();
+
+        IntStream.of(taskDelaysInSeconds).mapToObj(MockTask::new).forEach(MockTask::execute);
+
+        watch.stop();
+        return new ApiResponseDTO(watch.getTotalTimeSeconds());
+    }
+
     @GetMapping("/concurrent")
     public ApiResponseDTO concurrent(@RequestParam("task") int[] taskDelaysInSeconds, @RequestParam("threads") int numberOfConcurrentThreads) {
         StopWatch watch = new StopWatch();
@@ -29,17 +40,6 @@ public class TasksController {
 
         List<ITask> delayedTasks = IntStream.of(taskDelaysInSeconds).mapToObj(MockTask::new).collect(Collectors.toList());
         new ConcurrentTasksExecutor(numberOfConcurrentThreads, delayedTasks).execute();
-
-        watch.stop();
-        return new ApiResponseDTO(watch.getTotalTimeSeconds());
-    }
-
-    @GetMapping("/sequential")
-    public ApiResponseDTO sequential(@RequestParam("task") int[] taskDelaysInSeconds) {
-        StopWatch watch = new StopWatch();
-        watch.start();
-
-        IntStream.of(taskDelaysInSeconds).mapToObj(MockTask::new).forEach(MockTask::execute);
 
         watch.stop();
         return new ApiResponseDTO(watch.getTotalTimeSeconds());
