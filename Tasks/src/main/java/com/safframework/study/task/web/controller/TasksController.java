@@ -23,7 +23,7 @@ import java.util.stream.IntStream;
 public class TasksController {
 
     @GetMapping("/concurrent")
-    public ApiResponseDTO checkConcurrent(@RequestParam("task") int[] taskDelaysInSeconds, @RequestParam("threads") int numberOfConcurrentThreads) {
+    public ApiResponseDTO concurrent(@RequestParam("task") int[] taskDelaysInSeconds, @RequestParam("threads") int numberOfConcurrentThreads) {
         StopWatch watch = new StopWatch();
         watch.start();
 
@@ -35,7 +35,7 @@ public class TasksController {
     }
 
     @GetMapping("/sequential")
-    public ApiResponseDTO checkSequential(@RequestParam("task") int[] taskDelaysInSeconds) {
+    public ApiResponseDTO sequential(@RequestParam("task") int[] taskDelaysInSeconds) {
         StopWatch watch = new StopWatch();
         watch.start();
 
