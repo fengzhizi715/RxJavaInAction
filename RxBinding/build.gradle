@@ -13,15 +13,15 @@ ext {
             supportVersion          : "25.3.1",
 
             rxandroid               : "2.0.1",
-            rxjava                  : "2.1.5",
+            rxjava                  : "2.1.7",
             rxbinding               : "2.0.0",
             rxrelay                 : "2.0.0",
 
             saf_injectview          : "1.1.0",
             saf_injectview_compiler : "1.1.0",
-            saf_log                 : "1.2.0",
+            saf_log                 : "1.5.0",
 
-            tony_common_utils       : "1.1.0"
+            tony_common_utils       : "1.2.2"
     ]
 }
 buildscript {
