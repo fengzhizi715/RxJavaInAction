@@ -88,7 +88,7 @@ public class TestRetrofit2Activity extends BaseActivity {
                     }
                 });
 
-        final Maybe<PM10Model> pm10Maybe = apiService.pm10(Constant.CITY_ID,Constant.TOKEN)
+        Maybe<PM10Model> pm10Maybe = apiService.pm10(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<PM10Model>>maybeToMain())
                 .filter(new Predicate<List<PM10Model>>() {
                     @Override
@@ -112,7 +112,7 @@ public class TestRetrofit2Activity extends BaseActivity {
                     }
                 });
 
-        final Maybe<SO2Model> so2Maybe = apiService.so2(Constant.CITY_ID,Constant.TOKEN)
+        Maybe<SO2Model> so2Maybe = apiService.so2(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<SO2Model>>maybeToMain())
                 .filter(new Predicate<List<SO2Model>>() {
                     @Override
@@ -136,6 +136,7 @@ public class TestRetrofit2Activity extends BaseActivity {
                     }
                 });
 
+        // 合并多个网络请求
         Maybe.zip(pm25Maybe, pm10Maybe, so2Maybe, new Function3<PM25Model, PM10Model, SO2Model, ZipObject>() {
 
             @Override
