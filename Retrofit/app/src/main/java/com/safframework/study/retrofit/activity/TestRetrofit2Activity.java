@@ -12,6 +12,7 @@ import com.safframework.study.retrofit.http.RetrofitManager;
 import com.safframework.study.retrofit.model.PM10Model;
 import com.safframework.study.retrofit.model.PM25Model;
 import com.safframework.study.retrofit.model.SO2Model;
+import com.safframework.study.retrofit.model.ZipObject;
 import com.safframework.tony.common.utils.Preconditions;
 import com.safframework.utils.RxJavaUtils;
 
@@ -21,6 +22,7 @@ import io.reactivex.Maybe;
 import io.reactivex.MaybeSource;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.functions.Function3;
 import io.reactivex.functions.Predicate;
 
 /**
@@ -62,7 +64,7 @@ public class TestRetrofit2Activity extends BaseActivity {
 
         APIService apiService = RetrofitManager.retrofit().create(APIService.class);
 
-        apiService.pm25(Constant.CITY_ID,Constant.TOKEN)
+        Maybe<PM25Model> pm25Maybe = apiService.pm25(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<PM25Model>>maybeToMain())
                 .filter(new Predicate<List<PM25Model>>() {
                     @Override
@@ -84,25 +86,9 @@ public class TestRetrofit2Activity extends BaseActivity {
 
                         return null;
                     }
-                })
-                .subscribe(new Consumer<PM25Model>() {
-                    @Override
-                    public void accept(PM25Model model) throws Exception {
-
-                        if (model != null) {
-                            quality.setText("空气质量指数：" + model.quality);
-                            pm2_5.setText("PM2.5 1小时内平均：" + model.pm2_5);
-                            pm2_5_24h.setText("PM2.5 24小时滑动平均：" + model.pm2_5_24h);
-                        }
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        System.out.println(throwable.getMessage());
-                    }
                 });
 
-        apiService.pm10(Constant.CITY_ID,Constant.TOKEN)
+        final Maybe<PM10Model> pm10Maybe = apiService.pm10(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<PM10Model>>maybeToMain())
                 .filter(new Predicate<List<PM10Model>>() {
                     @Override
@@ -124,25 +110,9 @@ public class TestRetrofit2Activity extends BaseActivity {
 
                         return null;
                     }
-                })
-                .subscribe(new Consumer<PM10Model>() {
-                    @Override
-                    public void accept(PM10Model model) throws Exception {
-
-                        if (model!=null) {
-
-                            pm10.setText("PM10 1小时内平均："+model.pm10);
-                            pm10_24h.setText("PM10 24小时滑动平均："+model.pm10_24h);
-                        }
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        System.out.println(throwable.getMessage());
-                    }
                 });
 
-        apiService.so2(Constant.CITY_ID,Constant.TOKEN)
+        final Maybe<SO2Model> so2Maybe = apiService.so2(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<SO2Model>>maybeToMain())
                 .filter(new Predicate<List<SO2Model>>() {
                     @Override
@@ -164,22 +134,46 @@ public class TestRetrofit2Activity extends BaseActivity {
 
                         return null;
                     }
-                })
-                .subscribe(new Consumer<SO2Model>() {
-                    @Override
-                    public void accept(SO2Model model) throws Exception {
-
-                        if (model!=null) {
-
-                            so2.setText("二氧化硫1小时平均："+model.so2);
-                            so2_24h.setText("二氧化硫24小时滑动平均："+model.so2_24h);
-                        }
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        System.out.println(throwable.getMessage());
-                    }
                 });
+
+        Maybe.zip(pm25Maybe, pm10Maybe, so2Maybe, new Function3<PM25Model, PM10Model, SO2Model, ZipObject>() {
+
+            @Override
+            public ZipObject apply(PM25Model pm25Model, PM10Model pm10Model, SO2Model so2Model) throws Exception {
+
+                ZipObject zipObject = new ZipObject();
+                zipObject.pm2_5_quality = pm25Model.quality;
+                zipObject.pm2_5 = pm25Model.pm2_5;
+                zipObject.pm2_5_24h = pm25Model.pm2_5_24h;
+
+                zipObject.pm10 = pm10Model.pm10;
+                zipObject.pm10_24h = pm10Model.pm10_24h;
+
+                zipObject.so2 = so2Model.so2;
+                zipObject.so2_24h = so2Model.so2_24h;
+
+                return zipObject;
+            }
+        }).subscribe(new Consumer<ZipObject>() {
+            @Override
+            public void accept(ZipObject zipObject) throws Exception {
+
+                quality.setText("空气质量指数：" + zipObject.pm2_5_quality);
+                pm2_5.setText("PM2.5 1小时内平均：" + zipObject.pm2_5);
+                pm2_5_24h.setText("PM2.5 24小时滑动平均：" + zipObject.pm2_5_24h);
+
+                pm10.setText("PM10 1小时内平均："+zipObject.pm10);
+                pm10_24h.setText("PM10 24小时滑动平均："+zipObject.pm10_24h);
+
+                so2.setText("二氧化硫1小时平均："+zipObject.so2);
+                so2_24h.setText("二氧化硫24小时滑动平均："+zipObject.so2_24h);
+
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                System.out.println(throwable.getMessage());
+            }
+        });
     }
 }
