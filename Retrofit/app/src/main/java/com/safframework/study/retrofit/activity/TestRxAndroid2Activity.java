@@ -4,8 +4,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.log.L;
 import com.safframework.study.retrofit.R;
@@ -30,15 +32,18 @@ import io.reactivex.schedulers.Schedulers;
 
 public class TestRxAndroid2Activity extends BaseActivity {
 
+    @InjectView(R.id.spin_kit)
+    SpinKitView spinKitView;
+
     @InjectView(R.id.image)
     ImageView imageView;
 
-    private final static String IMAGE_URL = "http://n.sinaimg.cn/news/1_img/upload/60c98dca/20170929/KSE9-fymkwwk6862900.jpg";
+    private final static String IMAGE_URL = "http://www.designerspics.com/wp-content/uploads/2014/09/grass_shrubs_2_free_photo.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_rxandroid2);
+        setContentView(R.layout.activity_test_rxandroid);
 
         initData();
     }
@@ -73,6 +78,7 @@ public class TestRxAndroid2Activity extends BaseActivity {
 
                         if (bitmap != null) {
                             L.i("bitmap is not null");
+                            spinKitView.setVisibility(View.GONE);
                             imageView.setImageBitmap(bitmap);
                         }
                     }

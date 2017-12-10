@@ -63,4 +63,6 @@ dependencies {
     compile "tony-common:tony-common-utils:${libs.tony_common_utils}"
 
     compile "com.alibaba:fastjson:${libs.fastjson}"
+
+    compile 'com.github.ybq:Android-SpinKit:1.1.0'
 }

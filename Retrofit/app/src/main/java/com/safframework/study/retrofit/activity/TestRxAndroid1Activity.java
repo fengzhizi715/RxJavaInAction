@@ -3,8 +3,10 @@ package com.safframework.study.retrofit.activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.log.L;
 import com.safframework.study.retrofit.R;
@@ -19,6 +21,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -28,13 +31,16 @@ import io.reactivex.schedulers.Schedulers;
 
 public class TestRxAndroid1Activity extends BaseActivity {
 
+    @InjectView(R.id.spin_kit)
+    SpinKitView spinKitView;
+
     @InjectView(R.id.image)
     ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_rxandroid1);
+        setContentView(R.layout.activity_test_rxandroid);
 
         initData();
     }
@@ -60,6 +66,7 @@ public class TestRxAndroid1Activity extends BaseActivity {
 
                         if (bitmap != null) {
                             L.i("bitmap is not null");
+                            spinKitView.setVisibility(View.GONE);
                             imageView.setImageBitmap(bitmap);
                         }
                     }
@@ -70,7 +77,7 @@ public class TestRxAndroid1Activity extends BaseActivity {
         HttpURLConnection con;
 
         try {
-            URL url = new URL("http://n.sinaimg.cn/news/1_img/upload/60c98dca/20170929/KSE9-fymkwwk6862900.jpg");
+            URL url = new URL("http://www.designerspics.com/wp-content/uploads/2014/09/grass_shrubs_2_free_photo.jpg");
             con = (HttpURLConnection) url.openConnection();
             con.setConnectTimeout(20000);
             con.connect();
