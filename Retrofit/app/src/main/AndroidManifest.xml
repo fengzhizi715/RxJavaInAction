@@ -28,7 +28,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.TestRetrofitActivity"
+            android:name=".activity.TestRetrofit1Activity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
 

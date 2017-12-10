@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.safframework.injectview.annotations.InjectView;
-import com.safframework.log.L;
 import com.safframework.study.retrofit.R;
 import com.safframework.study.retrofit.api.APIService;
 import com.safframework.study.retrofit.app.BaseActivity;
+import com.safframework.study.retrofit.config.Constant;
 import com.safframework.study.retrofit.http.RetrofitManager;
 import com.safframework.study.retrofit.model.PM10Model;
 import com.safframework.study.retrofit.model.PM25Model;
@@ -24,13 +24,10 @@ import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 
 /**
- * Created by tony on 2017/9/29.
+ * Created by tony on 2017/12/10.
  */
 
-public class TestRetrofitActivity extends BaseActivity {
-
-    private String cityId = "苏州";
-    private String token = "5j1znBVAsnSf5xQyNQyq";
+public class TestRetrofit2Activity extends BaseActivity {
 
     @InjectView(R.id.quality)
     TextView quality;
@@ -65,7 +62,7 @@ public class TestRetrofitActivity extends BaseActivity {
 
         APIService apiService = RetrofitManager.retrofit().create(APIService.class);
 
-        apiService.pm25(cityId,token)
+        apiService.pm25(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<PM25Model>>maybeToMain())
                 .filter(new Predicate<List<PM25Model>>() {
                     @Override
@@ -105,7 +102,7 @@ public class TestRetrofitActivity extends BaseActivity {
                     }
                 });
 
-        apiService.pm10(cityId,token)
+        apiService.pm10(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<PM10Model>>maybeToMain())
                 .filter(new Predicate<List<PM10Model>>() {
                     @Override
@@ -145,7 +142,7 @@ public class TestRetrofitActivity extends BaseActivity {
                     }
                 });
 
-        apiService.so2(cityId,token)
+        apiService.so2(Constant.CITY_ID,Constant.TOKEN)
                 .compose(RxJavaUtils.<List<SO2Model>>maybeToMain())
                 .filter(new Predicate<List<SO2Model>>() {
                     @Override
