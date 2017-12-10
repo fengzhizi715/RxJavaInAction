@@ -5,22 +5,26 @@
 
 此repository是本人的《RxJava2.x 实战》一书中的例子
 
-Cv4j是Android工程，使用Android Studio打开
+StudyOperator是Android工程，使用Android Studio打开(还未完成)，第三、五、六、七章的例子
 
-Backpressure是Android工程，使用Android Studio打开
+Backpressure是Android工程，使用Android Studio打开，第八章的例子
 
-HttpClient是Java工程，使用IntelliJ Idea打开
+Parallel是Java工程，使用IntelliJ Idea打开，第十章的例子
 
-LearnJava8是Java工程，使用IntelliJ Idea打开
+RxBinding是Android工程，使用Android Studio打开，第十一章的例子
 
-Parallel是Java工程，使用IntelliJ Idea打开
+Retrofit是Android工程，使用Android Studio打开，第十二章的例子
 
-Retrofit是Android工程，使用Android Studio打开
+RxBus是Android工程，使用Android Studio打开，第十三章的例子
 
-RxBinding是Android工程，使用Android Studio打开
+HttpClient是Java工程，使用IntelliJ Idea打开，第十四章的例子
 
-RxBus是Android工程，使用Android Studio打开
+Tasks是Java工程，使用IntelliJ Idea打开，第十五章的例子
 
-StudyOperator是Android工程，使用Android Studio打开(还未完成)
+LearnJava8是Java工程，使用IntelliJ Idea打开，第十六章的例子
 
-Tasks是Java工程，使用IntelliJ Idea打开
+Cv4j是Android工程，使用Android Studio打开，第十七章的例子
+
+
+
+
