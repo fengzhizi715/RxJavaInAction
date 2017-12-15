@@ -31,6 +31,12 @@
             android:title="@string/create" />
 
         <item
+            android:id="@+id/drawer_transforming"
+            android:checked="true"
+            android:icon="@drawable/ic_transforming_24dp"
+            android:title="@string/transforming" />
+
+        <item
             android:id="@+id/drawer_combining"
             android:checked="true"
             android:icon="@drawable/ic_combining_24dp"

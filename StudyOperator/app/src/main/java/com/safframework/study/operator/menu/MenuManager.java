@@ -8,6 +8,7 @@ import com.safframework.study.operator.R;
 import com.safframework.study.operator.fragment.CombiningFragment;
 import com.safframework.study.operator.fragment.CreateFragment;
 import com.safframework.study.operator.fragment.HomeFragment;
+import com.safframework.study.operator.fragment.TransformingFragment;
 
 /**
  * Created by tony on 2016/11/20.
@@ -91,6 +92,10 @@ public class MenuManager {
         switch (type) {
             case HOME:
                 fragment = new HomeFragment();
+                break;
+
+            case TRANSFORMING:
+                fragment = new TransformingFragment();
                 break;
 
             case CREATE:
