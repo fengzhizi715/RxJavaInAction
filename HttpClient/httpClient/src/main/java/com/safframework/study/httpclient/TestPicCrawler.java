@@ -1,8 +1,8 @@
 package com.safframework.study.httpclient;
 
 import com.cv4j.piccrawler.CrawlerClient;
-import com.cv4j.piccrawler.FileGenType;
-import com.cv4j.piccrawler.FileStrategy;
+import com.cv4j.piccrawler.download.strategy.FileGenType;
+import com.cv4j.piccrawler.download.strategy.FileStrategy;
 
 /**
  * Created by tony on 2017/10/16.

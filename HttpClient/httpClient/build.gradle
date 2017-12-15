@@ -13,7 +13,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    compile "io.reactivex.rxjava2:rxjava:2.1.5"
+    compile "io.reactivex.rxjava2:rxjava:2.1.7"
     compile "org.apache.httpcomponents:httpclient:4.5.2"
-    compile 'com.cv4j.piccrawler:crawler:0.2.2'
+    compile 'com.cv4j.piccrawler:crawler:0.5.1'
 }
