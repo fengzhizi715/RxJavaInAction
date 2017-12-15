@@ -9,4 +9,6 @@ build/
 gradlew
 gradlew.bat
 
+out/
+
 log/
