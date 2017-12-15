@@ -24,6 +24,8 @@ ext {
             saf_aop                 : "1.1.4",
             saf_kotlin_utils        : "0.0.3.1",
             saf_kotlin_ext          : "0.0.1.1",
+            saf_router              : "1.1.2",
+            saf_router_compiler     : "1.1.0",
 
             tony_common_utils       : "1.2.2"
     ]

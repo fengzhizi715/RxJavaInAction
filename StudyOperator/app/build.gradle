@@ -50,5 +50,8 @@ dependencies {
     compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
     apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
+    compile "com.safframework.router:saf-router:${libs.saf_router}"
+    apt "com.safframework.router:saf-router-compiler:${libs.saf_router_compiler}"
+
     compile project(':ThirdPartyLibrary')
 }
