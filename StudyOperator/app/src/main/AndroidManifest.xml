@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.safframework.study.operator"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.safframework.study.operator">
 
     <application
         android:name="com.safframework.study.operator.app.App"
@@ -16,9 +16,9 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -28,9 +28,9 @@
             android:screenOrientation="portrait" />
 
         <activity
-        android:name=".activity.create.JustActivity"
-        android:configChanges="orientation|keyboardHidden"
-        android:screenOrientation="portrait" />
+            android:name=".activity.create.JustActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.create.FromActivity"
@@ -50,6 +50,11 @@
 
         <activity
             android:name=".activity.conditional.AmbActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.conditional.DefaultIfEmptyActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
     </application>
