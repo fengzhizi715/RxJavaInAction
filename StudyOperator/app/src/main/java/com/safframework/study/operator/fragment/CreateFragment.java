@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.Injector;
 import com.safframework.injectview.annotations.InjectView;
+import com.safframework.log.L;
 import com.safframework.router.Router;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseFragment;
@@ -43,7 +44,7 @@ public class CreateFragment extends BaseFragment {
                     @Override
                     public void accept(Object o) throws Exception {
 
-                        Router.getInstance().open("create");
+                        Router.getInstance().open("create/"+createView.getText());
                     }
                 });
     }
