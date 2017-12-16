@@ -114,6 +114,14 @@ public class MainActivity extends BaseActivity {
                 menuManager.show(MenuManager.MenuType.FILTERING);
                 break;
 
+            case R.id.drawer_conditional:
+                menuManager.show(MenuManager.MenuType.CONDITIONAL);
+                break;
+
+            case R.id.drawer_boolean:
+                menuManager.show(MenuManager.MenuType.BOOLEAN);
+                break;
+
             case R.id.drawer_combining:
                 menuManager.show(MenuManager.MenuType.COMBINING);
                 break;

@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.safframework.study.operator.R;
+import com.safframework.study.operator.fragment.BooleanFragment;
 import com.safframework.study.operator.fragment.CombiningFragment;
+import com.safframework.study.operator.fragment.ConditionalFragment;
 import com.safframework.study.operator.fragment.ConnectableFragment;
 import com.safframework.study.operator.fragment.CreateFragment;
 import com.safframework.study.operator.fragment.FilteringFragment;
@@ -106,6 +108,14 @@ public class MenuManager {
 
             case FILTERING:
                 fragment = new FilteringFragment();
+                break;
+
+            case CONDITIONAL:
+                fragment = new ConditionalFragment();
+                break;
+
+            case BOOLEAN:
+                fragment = new BooleanFragment();
                 break;
 
             case COMBINING:

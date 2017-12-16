@@ -5,6 +5,8 @@
     <string name="create">创建操作符</string>
     <string name="transforming">变换操作符</string>
     <string name="filtering">过滤操作符</string>
+    <string name="conditional">条件操作符</string>
+    <string name="boolean_operator">布尔操作符</string>
     <string name="combining">合并操作符</string>
     <string name="connectable">连接操作符</string>
 

@@ -43,6 +43,18 @@
             android:title="@string/filtering" />
 
         <item
+            android:id="@+id/drawer_conditional"
+            android:checked="true"
+            android:icon="@drawable/ic_conditional_24dp"
+            android:title="@string/conditional" />
+
+        <item
+            android:id="@+id/drawer_boolean"
+            android:checked="true"
+            android:icon="@drawable/ic_boolean_24dp"
+            android:title="@string/boolean_operator" />
+
+        <item
             android:id="@+id/drawer_combining"
             android:checked="true"
             android:icon="@drawable/ic_combining_24dp"
