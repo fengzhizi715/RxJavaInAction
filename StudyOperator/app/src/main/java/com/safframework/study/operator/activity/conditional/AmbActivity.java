@@ -3,12 +3,15 @@ package com.safframework.study.operator.activity.conditional;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.annotations.InjectExtra;
 import com.safframework.injectview.annotations.InjectView;
 import com.safframework.router.RouterRule;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseActivity;
+import com.safframework.study.operator.utils.RxUtils;
 
+import io.reactivex.functions.Consumer;
 import thereisnospon.codeview.CodeView;
 import thereisnospon.codeview.CodeViewTheme;
 
@@ -38,6 +41,17 @@ public class AmbActivity extends BaseActivity {
     private void initData() {
 
         toolbar.setTitle("< "+ title);
+
+        RxView.clicks(toolbar)
+                .compose(RxUtils.useRxViewTransformer(this))
+                .subscribe(new Consumer<Object>() {
+
+                    @Override
+                    public void accept(Object o) throws Exception {
+
+                        finish();
+                    }
+                });
 
         codeView.setTheme(CodeViewTheme.ANDROIDSTUDIO).fillColor();
 

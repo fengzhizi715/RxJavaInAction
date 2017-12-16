@@ -48,20 +48,26 @@ public class ConditionalFragment extends BaseFragment {
     private void initViews() {
 
         RxView.clicks(ambView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return ambView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(ambView))
                 .compose(RxUtils.<String>useRxViewTransformer(ConditionalFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("amb/"+s);
+                        Router.getInstance().open(s);
+                    }
+                });
+
+        RxView.clicks(defaultIfEmptyView)
+                .compose(RxUtils.routerUriTransformer(defaultIfEmptyView))
+                .compose(RxUtils.<String>useRxViewTransformer(ConditionalFragment.this))
+                .subscribe(new Consumer<String>() {
+
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open(s);
                     }
                 });
     }

@@ -52,92 +52,62 @@ public class CreateFragment extends BaseFragment {
 
     private void initViews() {
         RxView.clicks(createView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return createView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(createView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("create/"+s);
+                        Router.getInstance().open(s);
                     }
                 });
 
         RxView.clicks(justView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return justView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(justView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("just/"+s);
+                        Router.getInstance().open(s);
                     }
                 });
 
         RxView.clicks(fromView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return fromView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(fromView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("from/"+s);
+                        Router.getInstance().open(s);
                     }
                 });
 
         RxView.clicks(repeatView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return repeatView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(repeatView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("repeat/"+s);
+                        Router.getInstance().open(s);
                     }
                 });
 
         RxView.clicks(deferView)
-                .map(new Function<Object, String>() {
-
-                    @Override
-                    public String apply(Object o) throws Exception {
-                        return deferView.getText().toString();
-                    }
-                })
+                .compose(RxUtils.routerUriTransformer(deferView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
                     public void accept(String s) throws Exception {
 
-                        Router.getInstance().open("defer/"+s);
+                        Router.getInstance().open(s);
                     }
                 });
     }
