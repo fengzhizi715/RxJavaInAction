@@ -26,6 +26,9 @@ public class CreateFragment extends BaseFragment {
     @InjectView(R.id.text1)
     TextView createView;
 
+    @InjectView(R.id.text2)
+    TextView justView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_create, container, false);
@@ -45,6 +48,17 @@ public class CreateFragment extends BaseFragment {
                     public void accept(Object o) throws Exception {
 
                         Router.getInstance().open("create/"+createView.getText());
+                    }
+                });
+
+        RxView.clicks(justView)
+                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
+                .subscribe(new Consumer<Object>() {
+
+                    @Override
+                    public void accept(Object o) throws Exception {
+
+                        Router.getInstance().open("just/"+justView.getText());
                     }
                 });
     }
