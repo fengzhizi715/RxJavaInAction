@@ -52,7 +52,6 @@ public class CreateFragment extends BaseFragment {
 
     private void initViews() {
         RxView.clicks(createView)
-                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .map(new Function<Object, String>() {
 
                     @Override
@@ -60,6 +59,7 @@ public class CreateFragment extends BaseFragment {
                         return createView.getText().toString();
                     }
                 })
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
@@ -70,7 +70,6 @@ public class CreateFragment extends BaseFragment {
                 });
 
         RxView.clicks(justView)
-                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .map(new Function<Object, String>() {
 
                     @Override
@@ -78,6 +77,7 @@ public class CreateFragment extends BaseFragment {
                         return justView.getText().toString();
                     }
                 })
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
@@ -88,7 +88,6 @@ public class CreateFragment extends BaseFragment {
                 });
 
         RxView.clicks(fromView)
-                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .map(new Function<Object, String>() {
 
                     @Override
@@ -96,6 +95,7 @@ public class CreateFragment extends BaseFragment {
                         return fromView.getText().toString();
                     }
                 })
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
@@ -106,7 +106,6 @@ public class CreateFragment extends BaseFragment {
                 });
 
         RxView.clicks(repeatView)
-                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .map(new Function<Object, String>() {
 
                     @Override
@@ -114,6 +113,7 @@ public class CreateFragment extends BaseFragment {
                         return repeatView.getText().toString();
                     }
                 })
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
@@ -124,7 +124,6 @@ public class CreateFragment extends BaseFragment {
                 });
 
         RxView.clicks(deferView)
-                .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
                 .map(new Function<Object, String>() {
 
                     @Override
@@ -132,6 +131,7 @@ public class CreateFragment extends BaseFragment {
                         return deferView.getText().toString();
                     }
                 })
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
                     @Override
