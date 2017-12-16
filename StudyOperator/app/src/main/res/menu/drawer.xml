@@ -37,10 +37,22 @@
             android:title="@string/transforming" />
 
         <item
+            android:id="@+id/drawer_filtering"
+            android:checked="true"
+            android:icon="@drawable/ic_filtering_24dp"
+            android:title="@string/filtering" />
+
+        <item
             android:id="@+id/drawer_combining"
             android:checked="true"
             android:icon="@drawable/ic_combining_24dp"
             android:title="@string/combining" />
+
+        <item
+            android:id="@+id/drawer_connectable"
+            android:checked="true"
+            android:icon="@drawable/ic_connectable_24dp"
+            android:title="@string/connectable" />
 
     </group>
 </menu>

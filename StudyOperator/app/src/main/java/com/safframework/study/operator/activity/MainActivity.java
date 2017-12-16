@@ -110,8 +110,16 @@ public class MainActivity extends BaseActivity {
                 menuManager.show(MenuManager.MenuType.TRANSFORMING);
                 break;
 
+            case R.id.drawer_filtering:
+                menuManager.show(MenuManager.MenuType.FILTERING);
+                break;
+
             case R.id.drawer_combining:
                 menuManager.show(MenuManager.MenuType.COMBINING);
+                break;
+
+            case R.id.drawer_connectable:
+                menuManager.show(MenuManager.MenuType.CONNECTABLE);
                 break;
 
             default:

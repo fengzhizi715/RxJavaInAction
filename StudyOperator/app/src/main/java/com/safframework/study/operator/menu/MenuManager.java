@@ -6,7 +6,9 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.fragment.CombiningFragment;
+import com.safframework.study.operator.fragment.ConnectableFragment;
 import com.safframework.study.operator.fragment.CreateFragment;
+import com.safframework.study.operator.fragment.FilteringFragment;
 import com.safframework.study.operator.fragment.HomeFragment;
 import com.safframework.study.operator.fragment.TransformingFragment;
 
@@ -29,7 +31,7 @@ public class MenuManager {
         CONDITIONAL("条件操作符",true),
         BOOLEAN("布尔操作符",true),
         COMBINING("合并操作符",true),
-        CONNECTABLR("连接操作符",true);
+        CONNECTABLE("连接操作符",true);
 
         public final String title;
         public final boolean removed;
@@ -94,16 +96,24 @@ public class MenuManager {
                 fragment = new HomeFragment();
                 break;
 
-            case TRANSFORMING:
-                fragment = new TransformingFragment();
-                break;
-
             case CREATE:
                 fragment = new CreateFragment();
                 break;
 
+            case TRANSFORMING:
+                fragment = new TransformingFragment();
+                break;
+
+            case FILTERING:
+                fragment = new FilteringFragment();
+                break;
+
             case COMBINING:
                 fragment = new CombiningFragment();
+                break;
+
+            case CONNECTABLE:
+                fragment = new ConnectableFragment();
                 break;
 
             default:
