@@ -16,6 +16,7 @@ import com.safframework.study.operator.app.BaseFragment;
 import com.safframework.study.operator.utils.RxUtils;
 
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 
 /**
  * Created by tony on 2017/11/4.
@@ -52,56 +53,91 @@ public class CreateFragment extends BaseFragment {
     private void initViews() {
         RxView.clicks(createView)
                 .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
-                .subscribe(new Consumer<Object>() {
+                .map(new Function<Object, String>() {
 
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public String apply(Object o) throws Exception {
+                        return createView.getText().toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
 
-                        Router.getInstance().open("create/"+createView.getText());
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open("create/"+s);
                     }
                 });
 
         RxView.clicks(justView)
                 .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
-                .subscribe(new Consumer<Object>() {
+                .map(new Function<Object, String>() {
 
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public String apply(Object o) throws Exception {
+                        return justView.getText().toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
 
-                        Router.getInstance().open("just/"+justView.getText());
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open("just/"+s);
                     }
                 });
 
         RxView.clicks(fromView)
                 .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
-                .subscribe(new Consumer<Object>() {
+                .map(new Function<Object, String>() {
 
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public String apply(Object o) throws Exception {
+                        return fromView.getText().toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
 
-                        Router.getInstance().open("from/"+fromView.getText());
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open("from/"+s);
                     }
                 });
 
         RxView.clicks(repeatView)
                 .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
-                .subscribe(new Consumer<Object>() {
+                .map(new Function<Object, String>() {
 
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public String apply(Object o) throws Exception {
+                        return repeatView.getText().toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
 
-                        Router.getInstance().open("repeat/"+repeatView.getText());
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open("repeat/"+s);
                     }
                 });
 
         RxView.clicks(deferView)
                 .compose(RxUtils.useRxViewTransformer(CreateFragment.this))
-                .subscribe(new Consumer<Object>() {
+                .map(new Function<Object, String>() {
 
                     @Override
-                    public void accept(Object o) throws Exception {
+                    public String apply(Object o) throws Exception {
+                        return deferView.getText().toString();
+                    }
+                })
+                .subscribe(new Consumer<String>() {
 
-                        Router.getInstance().open("defer/"+deferView.getText());
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open("defer/"+s);
                     }
                 });
     }
