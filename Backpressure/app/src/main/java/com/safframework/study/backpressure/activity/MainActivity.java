@@ -23,6 +23,9 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.text4)
     TextView text4;
 
+    @InjectView(R.id.text5)
+    TextView text5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,15 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(MainActivity.this,ErrorActivity.class);
+                startActivity(i);
+            }
+        });
+
+        text5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this,BufferActivity.class);
                 startActivity(i);
             }
         });
