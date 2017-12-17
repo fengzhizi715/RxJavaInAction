@@ -12,6 +12,9 @@ ext {
     libraries = [
             supportVersion          : "25.3.1",
 
+            rxandroid               : "2.0.1",
+            rxjava                  : "2.1.7",
+
             saf_injectview          : "1.1.0",
             saf_injectview_compiler : "1.1.0",
             saf_log                 : "1.5.0",
