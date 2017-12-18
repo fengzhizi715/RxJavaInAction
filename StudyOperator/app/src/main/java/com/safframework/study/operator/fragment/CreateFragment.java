@@ -39,6 +39,9 @@ public class CreateFragment extends BaseFragment {
     @InjectView(R.id.text5)
     TextView deferView;
 
+    @InjectView(R.id.text6)
+    TextView intervalView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -101,6 +104,18 @@ public class CreateFragment extends BaseFragment {
 
         RxView.clicks(deferView)
                 .compose(RxUtils.routerUriTransformer(deferView))
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
+                .subscribe(new Consumer<String>() {
+
+                    @Override
+                    public void accept(String s) throws Exception {
+
+                        Router.getInstance().open(s);
+                    }
+                });
+
+        RxView.clicks(intervalView)
+                .compose(RxUtils.routerUriTransformer(intervalView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(new Consumer<String>() {
 
