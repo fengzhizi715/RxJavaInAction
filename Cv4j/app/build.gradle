@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -23,36 +22,49 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 多个jar包里包含了同样的文件（NOTICE.txt）,导致打包时因为担心相互覆盖问题而提示出错, 去掉这2个文件
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    compileOptions {
+        sourceCompatibility = "1.7"
+        targetCompatibility = "1.7"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
-    compile "com.android.support:design:${libs.supportVersion}"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "com.android.support:design:${libs.supportVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
 
-    compile "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
-    compile "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 
-    compile "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
 
-    compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
-    apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
-    compile "com.safframework.log:saf-log:${libs.saf_log}"
+    implementation "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
+    implementation "com.safframework.injectview:saf-injectview-annotation:${libs.saf_injectview_annotation}"
+    annotationProcessor "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
-    compile ('com.safframework:saf-rxlifecycle:1.0.0',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
-    compile ('com.safframework.utils:saf-kotlin-utils:0.0.2.6',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'tony-common', module: 'tony-common-utils'
-    })
-    compile "tony-common:tony-common-utils:${libs.tony_common_utils}"
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
 
-    compile 'com.cv4j:rxcv4j:0.1.1.1'
+    implementation 'com.safframework:saf-rxlifecycle:1.0.0'
+    implementation 'com.safframework.utils:saf-kotlin-utils:0.0.3.2'
+    implementation "tony-common:tony-common-utils:${libs.tony_common_utils}"
+
+    implementation 'com.cv4j:cv4j:0.1.1.4'
+    implementation 'com.cv4j:rxcv4j:0.1.1.1'
 }
