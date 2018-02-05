@@ -43,12 +43,9 @@ dependencies {
 
     implementation "com.safframework.log:saf-log:${libs.saf_log}"
 
-    implementation ('com.safframework:saf-rxlifecycle:1.0.0',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
-    implementation ('com.safframework.utils:saf-kotlin-utils:0.0.2.6',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'tony-common', module: 'tony-common-utils'
-    })
+    implementation 'com.safframework:saf-rxlifecycle:1.0.0'
+
+    implementation 'com.safframework.utils:saf-kotlin-utils:0.0.3.2'
+
     implementation "tony-common:tony-common-utils:${libs.tony_common_utils}"
 }

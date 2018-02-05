@@ -1,40 +1,42 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 ext {
     configuration = [
-            buildToolsVersion: "25.0.2",
-            compileVersion   : 25,
-            minSdk           : 14,
+            buildToolsVersion: "27.0.2",
+            compileVersion   : 27,
+            minSdk           : 15,
             targetSdk        : 25,
             version_code     : 1,
             version_name     : "1.0"
     ]
 
     libraries = [
-            supportVersion          : "25.3.1",
+            supportVersion            : "27.0.2",
 
-            rxandroid               : "2.0.1",
-            rxjava                  : "2.1.7",
-            rxbinding               : "2.0.0",
-            rxrelay                 : "2.0.0",
+            rxandroid                 : "2.0.1",
+            rxjava                    : "2.1.9",
+            rxbinding                 : "2.0.0",
+            rxrelay                   : "2.0.0",
 
-            retrofit                : "2.3.0",
+            retrofit                  : "2.3.0",
 
-            fastjson                : "1.1.63.android",
+            fastjson                  : "1.1.63.android",
 
-            saf_injectview          : "1.1.0",
-            saf_injectview_compiler : "1.1.0",
-            saf_log                 : "1.5.0",
 
-            tony_common_utils       : "1.2.3"
+            saf_injectview            : "1.1.1",
+            saf_injectview_annotation : "1.1.1",
+            saf_injectview_compiler   : "1.1.1",
+            saf_log                   : "1.5.1",
+
+            tony_common_utils         : "1.2.4"
     ]
 }
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -43,6 +45,7 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url "https://jitpack.io" }
     }

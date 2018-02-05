@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -24,45 +23,39 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
 
-    compile "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
-    compile "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 
-    compile "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
 
-    compile "com.squareup.retrofit2:retrofit:${libs.retrofit}"
-    compile "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit}"
+    implementation "com.squareup.retrofit2:retrofit:${libs.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit}"
 
-    compile ('org.ligboy.retrofit2:converter-fastjson-android:2.1.0',{
-        exclude group: 'com.alibaba', module: 'fastjson'
-    })
+    implementation 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
 
-    compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
-    apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
+    implementation "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
+    implementation "com.safframework.injectview:saf-injectview-annotation:${libs.saf_injectview_annotation}"
+    annotationProcessor "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
-    compile "com.safframework.log:saf-log:${libs.saf_log}"
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
 
-    compile ("com.safframework.log:saf-logginginterceptor:1.0.4",{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
+    implementation "com.safframework.log:saf-logginginterceptor:1.0.4"
 
-    compile ('com.safframework:saf-rxlifecycle:1.0.0',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
-    compile ('com.safframework.utils:saf-kotlin-utils:0.0.2.6',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'tony-common', module: 'tony-common-utils'
-    })
-    compile "tony-common:tony-common-utils:${libs.tony_common_utils}"
+    implementation 'com.safframework:saf-rxlifecycle:1.0.0'
 
-    compile "com.alibaba:fastjson:${libs.fastjson}"
+    implementation 'com.safframework.utils:saf-kotlin-utils:0.0.2.6'
 
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+    implementation "tony-common:tony-common-utils:${libs.tony_common_utils}"
+
+    implementation "com.alibaba:fastjson:${libs.fastjson}"
+
+    implementation 'com.github.ybq:Android-SpinKit:1.1.0'
 }
