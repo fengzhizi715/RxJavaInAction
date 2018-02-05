@@ -10,16 +10,17 @@ ext {
     ]
 
     libraries = [
-            supportVersion          : "27.0.2",
+            supportVersion            : "27.0.2",
 
-            rxandroid               : "2.0.1",
-            rxjava                  : "2.1.9",
-            rxbinding               : "2.0.0",
-            rxrelay                 : "2.0.0",
+            rxandroid                 : "2.0.1",
+            rxjava                    : "2.1.9",
+            rxbinding                 : "2.0.0",
+            rxrelay                   : "2.0.0",
 
-            saf_injectview          : "1.1.0",
-            saf_injectview_compiler : "1.1.0",
-            saf_log                 : "1.5.1"
+            saf_injectview            : "1.1.1",
+            saf_injectview_annotation : "1.1.1",
+            saf_injectview_compiler   : "1.1.1",
+            saf_log                   : "1.5.1"
     ]
 }
 buildscript {
