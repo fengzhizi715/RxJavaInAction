@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.hujiang.android-aspectjx'
-apply plugin: 'com.neenbedankt.android-apt'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -12,8 +11,8 @@ android {
     buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.safframework.study.operator"
-        minSdkVersion 17
-        targetSdkVersion 25
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -42,16 +41,46 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
-    apt "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "com.android.support:design:${libs.supportVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
 
-    compile "com.safframework.router:saf-router:${libs.saf_router}"
-    apt "com.safframework.router:saf-router-compiler:${libs.saf_router_compiler}"
 
-    compile project(':ThirdPartyLibrary')
+    /**********  rxjava相关start **********/
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
+
+    implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
+    implementation "com.jakewharton.rxrelay2:rxrelay:${libs.rxrelay}"
+    /**********  rxjava相关end **********/
+
+    /**********  tony's library start **********/
+    implementation "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
+    implementation "com.safframework.injectview:saf-injectview-annotation:${libs.saf_injectview_annotation}"
+    annotationProcessor "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
+
+    implementation "com.safframework.router:saf-router:${libs.saf_router}"
+    implementation "com.safframework.router:saf-router-annotation:${libs.saf_router_annotation}"
+    annotationProcessor "com.safframework.router:saf-router-compiler:${libs.saf_router_compiler}"
+
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
+    implementation "com.safframework:saf-aop:${libs.saf_aop}"
+
+    implementation "com.safframework.utils:saf-kotlin-ext:${libs.saf_kotlin_ext}"
+    implementation "com.safframework.utils:saf-kotlin-utils:${libs.saf_kotlin_utils}"
+
+    implementation 'com.safframework:saf-rxlifecycle:1.0.0'
+
+    /**********  tony's library end **********/
+
+    /**********  第三方控件start **********/
+    implementation 'thereisnospon.codeview:codeview:0.3.1'
+    implementation 'com.github.tiagohm.MarkdownView:library:0.13.1'
+    /**********  第三方控件end **********/
 }

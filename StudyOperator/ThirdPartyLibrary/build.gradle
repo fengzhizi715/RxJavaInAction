@@ -8,8 +8,8 @@ android {
     buildToolsVersion cfg.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 25
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -27,40 +27,31 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
-    compile "com.android.support:design:${libs.supportVersion}"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     /**********  rxjava相关start **********/
-    compile "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
-    compile "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 
-    compile "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
-    compile "com.jakewharton.rxrelay2:rxrelay:${libs.rxrelay}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
+    implementation "com.jakewharton.rxrelay2:rxrelay:${libs.rxrelay}"
     /**********  rxjava相关end **********/
 
     /**********  tony's library start **********/
 
-    compile "com.safframework.log:saf-log:${libs.saf_log}"
-    compile "com.safframework:saf-aop:${libs.saf_aop}"
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
+    implementation "com.safframework:saf-aop:${libs.saf_aop}"
 
-    compile "com.safframework.utils:saf-kotlin-ext:${libs.saf_kotlin_ext}"
-    compile ("com.safframework.utils:saf-kotlin-utils:${libs.saf_kotlin_utils}",{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'tony-common', module: 'tony-common-utils'
-    })
+    implementation "com.safframework.utils:saf-kotlin-ext:${libs.saf_kotlin_ext}"
+    implementation "com.safframework.utils:saf-kotlin-utils:${libs.saf_kotlin_utils}"
 
-    compile ('com.safframework:saf-rxlifecycle:1.0.0',{
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
+    implementation 'com.safframework:saf-rxlifecycle:1.0.0'
+
     /**********  tony's library end **********/
 
     /**********  第三方控件start **********/
-    compile 'thereisnospon.codeview:codeview:0.3.1'
-    compile 'com.github.tiagohm.MarkdownView:library:0.13.1'
+    implementation 'thereisnospon.codeview:codeview:0.3.1'
+    implementation 'com.github.tiagohm.MarkdownView:library:0.13.1'
     /**********  第三方控件end **********/
 
 }
