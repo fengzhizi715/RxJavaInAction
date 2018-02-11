@@ -12,8 +12,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import java.util.function.Function;
-
 /**
  * Created by tony on 2017/9/11.
  */
@@ -62,5 +60,6 @@ public class TestHttpClientWithObservable {
                 EntityUtils.consume(entity);
             }
         });
+
     }
 }
