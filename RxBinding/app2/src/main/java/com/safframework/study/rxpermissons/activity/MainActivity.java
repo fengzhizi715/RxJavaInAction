@@ -50,7 +50,6 @@ public class MainActivity extends BaseActivity {
 
                         rxPermissions.request(Manifest.permission.CALL_PHONE)
                                 .subscribe(new Consumer<Boolean>() {
-                                    @SuppressLint("MissingPermission")
                                     @Override
                                     public void accept(Boolean granted) throws Exception {
 
