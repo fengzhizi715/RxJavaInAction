@@ -7,7 +7,7 @@ android {
     compileSdkVersion cfg.compileVersion
     buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
-        applicationId "com.safframework.study.rxpermission"
+        applicationId "com.safframework.study.rxpermisson"
         minSdkVersion cfg.minSdk
         targetSdkVersion cfg.targetSdk
         versionCode 1
@@ -35,4 +35,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 
     implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
+
+    implementation "com.safframework.injectview:saf-injectview:${libs.saf_injectview}"
+    implementation "com.safframework.injectview:saf-injectview-annotation:${libs.saf_injectview_annotation}"
+    annotationProcessor "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
+
+    implementation "com.safframework.log:saf-log:${libs.saf_log}"
 }
