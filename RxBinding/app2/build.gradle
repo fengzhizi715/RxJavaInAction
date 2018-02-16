@@ -41,4 +41,6 @@ dependencies {
     annotationProcessor "com.safframework.injectview:saf-injectview-compiler:${libs.saf_injectview_compiler}"
 
     implementation "com.safframework.log:saf-log:${libs.saf_log}"
+
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
 }
