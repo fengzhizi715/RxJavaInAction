@@ -1,15 +1,6 @@
-package com.safframework.study.rxpermisson.activity;
+package com.safframework.study.rxpermissons.activity;
 
-import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.jakewharton.rxbinding2.view.RxView;
-import com.safframework.injectview.annotations.InjectView;
-import com.safframework.study.rxpermisson.app.BaseActivity;
-
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
+import com.safframework.study.rxpermissons.app.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 

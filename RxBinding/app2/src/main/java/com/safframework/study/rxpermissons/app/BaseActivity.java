@@ -1,4 +1,4 @@
-package com.safframework.study.rxpermisson.app;
+package com.safframework.study.rxpermissons.app;
 
 import android.support.v7.app.AppCompatActivity;
 

@@ -7,7 +7,7 @@ android {
     compileSdkVersion cfg.compileVersion
     buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
-        applicationId "com.safframework.study.rxpermisson"
+        applicationId "com.safframework.study.rxpermissons"
         minSdkVersion cfg.minSdk
         targetSdkVersion cfg.targetSdk
         versionCode 1
