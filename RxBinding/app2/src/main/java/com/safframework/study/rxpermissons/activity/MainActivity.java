@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity {
 
         RxView.clicks(text3)
                 .compose(rxPermissions.ensure(Manifest.permission.CAMERA,
-                        Manifest.permission.READ_PHONE_STATE))
+                        Manifest.permission.READ_CONTACTS))
                 .subscribe(new Consumer<Boolean>() {
                     @Override
                     public void accept(Boolean granted) throws Exception {
