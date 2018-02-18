@@ -1,6 +1,6 @@
 package com.safframework.study.httpclient;
 
-import com.cv4j.piccrawler.CrawlerClient;
+import com.cv4j.piccrawler.PicCrawlerClient;
 import com.cv4j.piccrawler.download.strategy.FileGenType;
 import com.cv4j.piccrawler.download.strategy.FileStrategy;
 
@@ -12,7 +12,7 @@ public class TestPicCrawler {
     public static void main(String[] args) {
 
         String url = "http://www.designerspics.com/"; // 针对某一个网址
-        CrawlerClient.get()
+        PicCrawlerClient.get()
                 .timeOut(6000)
                 .fileStrategy(new FileStrategy() {
 
