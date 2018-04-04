@@ -5,6 +5,11 @@
 
 此repository是本人的《RxJava2.x 实战》一书中的例子
 
+Android的工程采用Android Studio3.1开发，gradle版本是4.1。
+Java的工程采用Intellij IDEA社区版开发。
+
+
+
 StudyOperator是Android工程，使用Android Studio打开(还未完成)，第三、五、六、七章的例子
 
 Backpressure是Android工程，使用Android Studio打开，第八章的例子
