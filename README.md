@@ -13,36 +13,32 @@ Java的工程采用Intellij IDEA社区版开发。
 
 # 各章节的例子
 
-### 第3、4、5章
+### 第3、5、6、7章
 StudyOperator是Android工程，使用Android Studio打开(还未完成)。
 
 ### 第8章
 Backpressure是Android工程，使用Android Studio打开。
 
-### 第十章 
+### 第10章
 Parallel是Java工程，使用IntelliJ Idea打开。
 
-### 第十一章
+### 第11章
 RxBinding是Android工程，使用Android Studio打开。
 
-### 第十二章
+### 第12章
 Retrofit是Android工程，使用Android Studio打开。
 
-### 第十三章
+### 第13章
 RxBus是Android工程，使用Android Studio打开。
 
-### 第十四章
+### 第14章
 HttpClient是Java工程，使用IntelliJ Idea打开。
 
-### 第十五章
+### 第15章
 Tasks是Java工程，使用IntelliJ Idea打开。
 
-### 第十六章
+### 第16章
 LearnJava8是Java工程，使用IntelliJ Idea打开。
 
-### 第十七章
+### 第17章
 Cv4j是Android工程，使用Android Studio打开。
-
-
-
-
