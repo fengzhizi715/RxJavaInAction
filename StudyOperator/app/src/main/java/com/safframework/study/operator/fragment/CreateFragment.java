@@ -38,6 +38,7 @@ public class CreateFragment extends BaseFragment {
     @InjectView(R.id.text6)
     TextView intervalView;
 
+    private RouterConsumer consumer = new RouterConsumer();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,31 +54,31 @@ public class CreateFragment extends BaseFragment {
         RxView.clicks(createView)
                 .compose(RxUtils.routerUriTransformer(createView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
 
         RxView.clicks(justView)
                 .compose(RxUtils.routerUriTransformer(justView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
 
         RxView.clicks(fromView)
                 .compose(RxUtils.routerUriTransformer(fromView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
 
         RxView.clicks(repeatView)
                 .compose(RxUtils.routerUriTransformer(repeatView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
 
         RxView.clicks(deferView)
                 .compose(RxUtils.routerUriTransformer(deferView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
 
         RxView.clicks(intervalView)
                 .compose(RxUtils.routerUriTransformer(intervalView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
-                .subscribe(new RouterConsumer());
+                .subscribe(consumer);
     }
 }
