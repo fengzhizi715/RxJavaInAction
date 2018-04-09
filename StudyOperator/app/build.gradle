@@ -57,7 +57,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
 
     implementation "com.jakewharton.rxbinding2:rxbinding:${libs.rxbinding}"
-    implementation "com.jakewharton.rxrelay2:rxrelay:${libs.rxrelay}"
     /**********  rxjava相关end **********/
 
     /**********  tony's library start **********/

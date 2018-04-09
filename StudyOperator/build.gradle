@@ -16,7 +16,6 @@ ext {
             rxandroid                 : "2.0.1",
             rxjava                    : "2.1.12",
             rxbinding                 : "2.0.0",
-            rxrelay                   : "2.0.0",
 
             saf_injectview            : "1.1.1",
             saf_injectview_annotation : "1.1.1",

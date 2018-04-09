@@ -9,14 +9,12 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.safframework.injectview.Injector;
 import com.safframework.injectview.annotations.InjectView;
-import com.safframework.log.L;
 import com.safframework.router.Router;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseFragment;
 import com.safframework.study.operator.utils.RxUtils;
 
 import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * Created by tony on 2017/11/4.
