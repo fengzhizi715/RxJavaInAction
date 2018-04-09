@@ -77,6 +77,7 @@ dependencies {
 
     implementation 'com.safframework:saf-rxlifecycle:1.0.0'
 
+    implementation "tony-common:tony-common-utils:${libs.tony_common_utils}"
     /**********  tony's library end **********/
 
     /**********  第三方控件start **********/
