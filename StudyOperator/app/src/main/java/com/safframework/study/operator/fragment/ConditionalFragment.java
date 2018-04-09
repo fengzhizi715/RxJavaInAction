@@ -12,6 +12,7 @@ import com.safframework.injectview.annotations.InjectView;
 import com.safframework.router.Router;
 import com.safframework.study.operator.R;
 import com.safframework.study.operator.app.BaseFragment;
+import com.safframework.study.operator.rxjava.RouterConsumer;
 import com.safframework.study.operator.utils.RxUtils;
 
 import io.reactivex.functions.Consumer;
@@ -35,6 +36,8 @@ public class ConditionalFragment extends BaseFragment {
     @InjectView(R.id.text4)
     TextView skipWhileView;
 
+    private RouterConsumer consumer = new RouterConsumer();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_conditional, container, false);
@@ -50,25 +53,11 @@ public class ConditionalFragment extends BaseFragment {
         RxView.clicks(ambView)
                 .compose(RxUtils.routerUriTransformer(ambView))
                 .compose(RxUtils.<String>useRxViewTransformer(ConditionalFragment.this))
-                .subscribe(new Consumer<String>() {
-
-                    @Override
-                    public void accept(String s) throws Exception {
-
-                        Router.getInstance().open(s);
-                    }
-                });
+                .subscribe(consumer);
 
         RxView.clicks(defaultIfEmptyView)
                 .compose(RxUtils.routerUriTransformer(defaultIfEmptyView))
                 .compose(RxUtils.<String>useRxViewTransformer(ConditionalFragment.this))
-                .subscribe(new Consumer<String>() {
-
-                    @Override
-                    public void accept(String s) throws Exception {
-
-                        Router.getInstance().open(s);
-                    }
-                });
+                .subscribe(consumer);
     }
 }
