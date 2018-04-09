@@ -38,6 +38,9 @@ public class CreateFragment extends BaseFragment {
     @InjectView(R.id.text6)
     TextView intervalView;
 
+    @InjectView(R.id.text7)
+    TextView timerView;
+
     private RouterConsumer consumer = new RouterConsumer();
 
     @Override
@@ -78,6 +81,11 @@ public class CreateFragment extends BaseFragment {
 
         RxView.clicks(intervalView)
                 .compose(RxUtils.routerUriTransformer(intervalView))
+                .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
+                .subscribe(consumer);
+
+        RxView.clicks(timerView)
+                .compose(RxUtils.routerUriTransformer(timerView))
                 .compose(RxUtils.<String>useRxViewTransformer(CreateFragment.this))
                 .subscribe(consumer);
     }
