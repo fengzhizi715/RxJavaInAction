@@ -38,6 +38,9 @@ object RxUtils {
         }
     }
 
+    /**
+     * 获取textview的内容。转换成路由跳转需要的uri
+     */
     @JvmStatic
     fun <T> routerUriTransformer(textView: TextView): ObservableTransformer<T, String> {
 
