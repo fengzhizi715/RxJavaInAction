@@ -14,7 +14,7 @@ Java的工程采用Intellij IDEA社区版开发。
 # 各章节的例子
 
 ### 第3、5、6、7章
-StudyOperator是Android工程，使用Android Studio打开(还未完成)。
+StudyOperator是Android工程，使用Android Studio打开。
 
 ### 第8章
 Backpressure是Android工程，使用Android Studio打开。
