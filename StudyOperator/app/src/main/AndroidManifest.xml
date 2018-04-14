@@ -53,6 +53,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".activity.create.TimerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".activity.conditional.AmbActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />

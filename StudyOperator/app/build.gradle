@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.hujiang.android-aspectjx'
+apply plugin: 'kotlin-kapt'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -66,7 +67,7 @@ dependencies {
 
     implementation "com.safframework.router:saf-router:${libs.saf_router}"
     implementation "com.safframework.router:saf-router-annotation:${libs.saf_router_annotation}"
-    annotationProcessor "com.safframework.router:saf-router-compiler:${libs.saf_router_compiler}"
+    kapt "com.safframework.router:saf-router-compiler:${libs.saf_router_compiler}"
 
     implementation "com.safframework.log:saf-log:${libs.saf_log}"
     implementation "com.safframework:saf-aop:${libs.saf_aop}"
