@@ -31,12 +31,16 @@ RxBus是Android工程，使用Android Studio打开。
 ### 第14章
 HttpClient是Java工程，使用IntelliJ Idea打开。
 
-除此之外，还有一个例子，是图片爬虫的工程。
+除此之外，本章还有一个例子，是图片爬虫的工程。
 在我另一个repository：
 https://github.com/fengzhizi715/PicCrawler
 
 ### 第15章
 Tasks是Java工程，使用IntelliJ Idea打开。
+
+除此之外，本章还有一个例子，是获取可用的代理IP池的工程。
+在我另一个repository：
+https://github.com/fengzhizi715/ProxyPool
 
 ### 第16章
 LearnJava8是Java工程，使用IntelliJ Idea打开。
