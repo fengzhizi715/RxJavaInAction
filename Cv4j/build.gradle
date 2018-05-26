@@ -13,7 +13,7 @@ ext {
             supportVersion            : "27.0.2",
 
             rxandroid                 : "2.0.1",
-            rxjava                    : "2.1.12",
+            rxjava                    : "2.1.14",
             rxbinding                 : "2.0.0",
 
             fastjson                  : "1.1.67.android",
