@@ -47,7 +47,7 @@ dependencies {
 
     implementation "com.safframework.log:saf-log:${libs.saf_log}"
 
-    implementation "com.safframework.log:saf-logginginterceptor:1.0.4"
+    implementation "com.safframework.log:saf-logginginterceptor:${libs.saf_logginginterceptor}"
 
     implementation 'com.safframework:saf-rxlifecycle:1.0.0'
 

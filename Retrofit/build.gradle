@@ -19,13 +19,14 @@ ext {
 
             retrofit                  : "2.3.0",
 
-            fastjson                  : "1.1.63.android",
+            fastjson                  : "1.1.68.android",
 
 
             saf_injectview            : "1.1.1",
             saf_injectview_annotation : "1.1.1",
             saf_injectview_compiler   : "1.1.1",
-            saf_log                   : "1.5.1",
+            saf_log                   : "1.5.3",
+            saf_logginginterceptor    : "1.2.0",
 
             tony_common_utils         : "1.2.5"
     ]
