@@ -92,7 +92,7 @@ public class TestHttpClientWithPoolAndMaybe {
                 // 创建GET请求对象
                 HttpGet httpGet = new HttpGet(url);
 
-                CloseableHttpResponse response = httpClient.execute(httpGet);
+                CloseableHttpResponse response = null;
                 String msg = null;
                 try {
                     // 执行请求
